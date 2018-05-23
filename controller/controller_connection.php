@@ -13,7 +13,7 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     if(!empty($tmp)){
         //No errors
         if($id === $tmp[0] and $password === $tmp[1]){
-            seession_start();
+            session_start();
             $_SESSION['id'] = $id;
             require_once("controller_member_home_page.php");
         } 
