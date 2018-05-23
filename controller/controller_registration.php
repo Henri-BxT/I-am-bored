@@ -52,7 +52,7 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             require("../model/model_registration_insert.php");
             registration_insert($db_connect,$id,$password);
             echo "You were registred with the id : ".$_POST['id'].", and the password : ".$_POST['password'];
-            echo "<br><a href='../view/view_home_page.html'>Retour</a>";
+            echo "<br><a href='../view/view_home_page.php'>Retour</a>";
         }
         mysqli_close($db_connect);
     }
