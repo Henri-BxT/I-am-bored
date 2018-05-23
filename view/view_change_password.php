@@ -1,6 +1,4 @@
 <?php 
-session_start();
-session_id();
 $login = $_SESSION['id']
 ?>
 
