@@ -1,6 +1,7 @@
 <?php
-
 require_once("C:\wamp\www\I-am-bored\\view\\view_change_password.php");
+session_start();
+
 
 $tmp_password= "";
 
