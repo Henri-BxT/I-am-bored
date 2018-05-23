@@ -20,10 +20,10 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     //Error with the id or password
     } else {
         echo "Wrong id or password<br>";
-        require_once("../view/view_home_page.html");
+        require_once("../view/view_sign_in.html");
     }
 } else {
     echo "One of the fields is empty<br>";
-    require_once("../view/view_home_page.html");
+    require_once("../view/view_sign_in.html");
 }
 ?>
