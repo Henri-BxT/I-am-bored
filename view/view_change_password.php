@@ -14,7 +14,6 @@ $login = $_SESSION['id']
 
 
 <h4 align="right">Welcome <?php print("$login");?>
-<?php require("C:\wamp\www\PI\CONTROLLER\FUNCTIONS\controller_logout.php");?>
 <br><br>
 
 <h2 align="left">Password Change</h2>

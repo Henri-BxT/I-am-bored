@@ -1,6 +1,6 @@
 <?php
 
-require_once("C:\wamp\www\PI\VIEW\\view_change_password.php");
+require_once("C:\wamp\www\I-am-bored\\view\\view_change_password.php");
 
 $tmp_password= "";
 
@@ -30,7 +30,7 @@ if(isset($_POST['validation'])){
 			$password = $_POST['pass_confirmation'];
 			$password = (string) $password;
 			$_SESSION['password'] = $password;
-			require_once("C:\wamp\www\PI\MODEL\model_change_password.php");
+			require_once("C:\wamp\www\I-am-bored\model\model_change_password.php");
 			print("Reset confirmed");
 		}
 		//Else if it fail print Error message
