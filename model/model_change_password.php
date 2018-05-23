@@ -6,7 +6,7 @@ $password = "";
 
 $db_connexion = mysqli_connect($host, $user, $password, $bdd) or die ("Error can't connect to the database");
 
-require("C:\wamp\www\I-am-bored\controller\\functions\controller_encrypt.php");
+require("functions/controller_encrypt.php");
 
 $login = $_SESSION['id'];
 $password = $_SESSION['password'];
