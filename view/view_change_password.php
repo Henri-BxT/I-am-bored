@@ -18,7 +18,7 @@ $login = $_SESSION['id']
 <h2 align="left">Password Change</h2>
 
 <form action="../controller/controller_change_password.php" method="POST">
-New Password <input type="password" name="password" value=""> Required in 6 to 14 characters
+New Password <input type="password" name="password" value=""> Required between 6 and 14 characters
 <br>
 Re-type Password <input type="password" name="pass_confirmation" value="">
 <br>
