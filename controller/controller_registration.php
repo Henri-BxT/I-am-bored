@@ -1,8 +1,25 @@
 <?php
 if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['password2'])){
+    if(isset($_REQUEST['privacypolicies'])){
     //If the two passwords aren't the same
     if($_POST['password'] !== $_POST['password2']){
         echo "The passwords are differents<br>";
+        require_once("../view/view_registration.html");
+        exit();
+    } else if(strlen($_POST['id'])<3){
+        echo "Is that really your name ?<br>";
+        require_once("../view/view_registration.html");
+        exit();
+    } else if(strlen($_POST['id'])>20){
+        echo "There is no way I can remember that.<br>";
+        require_once("../view/view_registration.html");
+        exit();
+    } else if(strlen($_POST['password'])<6){
+        echo "Size is still important.<br>";
+        require_once("../view/view_registration.html");
+        exit();
+    } else if(strlen($_POST['password'])>14){
+        echo "I-impossible, it will never fit in.<br>";
         require_once("../view/view_registration.html");
         exit();
     } else {
@@ -39,6 +56,11 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             echo "<br><a href='../view/view_home_page.html'>Retour</a>";
         }
         mysqli_close($db_connect);
+    }
+    }else {
+        echo "You MUST read the chart of privacy policies";
+        require_once("../view/view_registration.html");
+        exit();
     }
 //if a field is empty
 } else {
