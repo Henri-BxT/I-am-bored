@@ -31,16 +31,14 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
         }
         //search the database to see if the id already exist
         $search = false;
-        $id_search = mysqli_query($db_connect, "SELECT login
-                                                FROM MEMBERS
-                                                WHERE login = '".$_POST['id']."';");
-        $tmp = mysqli_fetch_array($id_search, MYSQLI_NUM);
-        mysqli_free_result($id_search);
+        require("../model/model_registration_id_search.php");
+        $tmp = mysqli_fetch_array(idsearch($db_connect,$_POST['id']), MYSQLI_NUM);
+        mysqli_free_result(idsearch($db_connect,$_POST['id']));
         if(!empty($tmp)){
             foreach($tmp as $id){
                 if($id === $_POST['id']){
                     //ID already exists
-                    echo"ID already exists<br>";
+                    echo "ID already exists<br>";
                     require_once("../view/view_registration.html");
                     $search = true;
                 }
@@ -49,9 +47,10 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
         //No errors, the user is registred
         if($search !== true){
             $id = $_POST['id'];
-            require("controller_encrypt.php");
+            require("functions/controller_encrypt.php");
             $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
-            $result = mysqli_query($db_connect, "INSERT INTO MEMBERS VALUES (NULL,'$id','$password');");
+            require("../model/model_registration_insert.php");
+            registration_insert($db_connect,$id,$password);
             echo "You were registred with the id : ".$_POST['id'].", and the password : ".$_POST['password'];
             echo "<br><a href='../view/view_home_page.html'>Retour</a>";
         }
