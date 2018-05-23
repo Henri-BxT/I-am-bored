@@ -3,15 +3,21 @@ require("functions/controller_encrypt.php");
 if(!empty($_POST['id']) and !empty($_POST['password'])){
     $id = $_POST['id'];
     $password = $_POST['password'];
+    //Encrypt the received password and 
+    //compare it to the password attached to the id in the database
     $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
     $db_connect = mysqli_connect("localhost", "root", "", "im_bored");
     require("../model/model_connection.php");
     $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM);
     mysqli_free_result(connect($db_connect,$id,$password));
     if(!empty($tmp)){
+        //No errors
         if($id === $tmp[0] and $password === $tmp[1]){
+            seession_start();
+            $_SESSION['id'] = $id;
             require_once("controller_member_home_page.php");
         } 
+    //Error with the id or password
     } else {
         echo "Wrong id or password<br>";
         require_once("../view/view_home_page.html");

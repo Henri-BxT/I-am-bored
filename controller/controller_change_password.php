@@ -1,5 +1,5 @@
 <?php
-
+seession_start();
 require_once("C:\wamp\www\PI\VIEW\\view_change_password.php");
 
 $tmp_password= "";
