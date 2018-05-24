@@ -1,6 +1,6 @@
 <?php
+session_start();
 require_once("../view/view_change_password.php");
-
 
 $tmp_password= "";
 
