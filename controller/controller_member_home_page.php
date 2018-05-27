@@ -1,7 +1,6 @@
 <?php
-session_start();
 if(!isset($_SESSION['id'])){
-$_SESSION['id'] = $id;
+    session_start();
 }
 require_once("../view/view_member_home_page.html");
 ?>
