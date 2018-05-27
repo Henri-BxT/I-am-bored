@@ -7,7 +7,7 @@ $select = "title";
 $table = "MOVIES";
 $column = "id_movie";
 $id = $_SESSION['id'];
-$liste = mysqli_fetch_array(profile_list($db_connect,$id,$select,$table,$column), MYSQLI_NUM);
+$liste = mysqli_fetch_array(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
 if(!empty($liste)){
     foreach($liste as $movie){
         echo $movie;
