@@ -15,5 +15,5 @@ if(!empty($liste)){
 }else{
     echo "Your list is empty.<BR>";
 }
-echo "</TABLE></CENTER><BR><a href='controller_member_home_page.php'>Retour</a></BODY></HTML>"
+echo "</TABLE></CENTER><BR><a href='controller_profil.php'>Retour</a></BODY></HTML>"
 ?>
