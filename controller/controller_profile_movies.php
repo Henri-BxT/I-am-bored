@@ -7,13 +7,16 @@ $select = "title";
 $table = "MOVIES";
 $column = "id_movie";
 $id = $_SESSION['id'];
-$liste = mysqli_fetch_array(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
+$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
 if(!empty($liste)){
-    foreach($liste as $movie){
-        echo $movie;
+    foreach($liste as $array){
+        foreach($array as $movie){
+            echo $movie."<BR>";
+        }
     };
 }else{
     echo "Your list is empty.<BR>";
 }
-echo "</TABLE></CENTER><BR><a href='controller_profil.php'>Retour</a></BODY></HTML>"
+mysqli_close($db_connect);
+echo "</TABLE></CENTER><BR><a href='controller_member_home_page.php'>Retour</a></BODY></HTML>"
 ?>

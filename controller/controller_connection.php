@@ -17,6 +17,7 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
             require_once("controller_member_home_page.php");
         } 
     //Error with the id or password
+    mysqli_close($db_connect);
     } else {
         echo "Wrong id or password<br>";
         require_once("../view/view_sign_in.html");
