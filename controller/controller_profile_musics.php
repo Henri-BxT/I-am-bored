@@ -9,9 +9,10 @@ $column = "id_music";
 $id = $_SESSION['id'];
 $liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
 if(!empty($liste)){
+    echo "<tr>";
     foreach($liste as $array){
         foreach($array as $music){
-            echo $music."<BR>";
+            echo "<td>".$music."</td></tr>";
         }
     };
 }else{

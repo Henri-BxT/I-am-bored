@@ -3,5 +3,29 @@
 <HTML>
 <HEAD><TITLE>Profile</TITLE></HEAD>
 <BODY>
-    <center>
-    <TABLE border=1>
+sort by
+<?php
+if(isset($_REQUEST['list_movies'])){
+    echo "<form action='../controller/controller_profile_movies.php' method='GET'>";
+}else{
+    echo "<form action='../controller/controller_profile_musics.php' method='GET'>";
+}
+?>
+<select name="sort">
+    <option value="ASC">Title ascending</option>
+    <option value="DESC">Title descending</option>
+    <option value="type">Type</option>
+    <option value="recent">Recent</option>
+    <option value="old">Old</option>
+</select>
+<?php
+if(isset($_REQUEST['list_movies'])){
+    echo "<input type='submit' name='list_movies' value='Sort'>";
+}else{
+    echo "<input type='submit' name='list_musics' value='Sort'>";
+}
+?>
+</form>
+<BR>
+<center>
+    <TABLE border="1">
