@@ -21,7 +21,7 @@ function movie_profil_search($SESSION, $POST){
 	$SQL = 'SELECT listed_movies.id_movie, movies.title, movies.image, listed_movies.grade FROM listed_movies JOIN members ON listed_movies."'.$tmp[0].'" = members."'.$tmp[0].'" JOIN movies ON listed_movies.id_movie = movies.id_movies';
 	$REQ = mysqli_query($db_connexion, $SQL);
 
-	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
+	$movies = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
 	mysqli_free_result($REQ);
 }
@@ -45,7 +45,7 @@ function music_profil_search($SESSION, $POST){
 	$SQL = 'SELECT listed_musics.id_music, musics.title, musics.image, listed_musics.grade FROM listed_musics JOIN members ON listed_musics."'.$tmp[0].'" = members."'.$tmp[0].'" JOIN musics ON listed_musics.id_musics = musics.id_musics';
 	$REQ = mysqli_query($db_connexion, $SQL);
 
-	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
+	$musics = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
 	mysqli_free_result($REQ);
 }
