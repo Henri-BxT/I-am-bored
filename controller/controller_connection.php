@@ -9,7 +9,6 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     $db_connect = mysqli_connect("localhost", "root", "", "im_bored");
     require("../model/model_connection.php");
     $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM);
-    mysqli_free_result(connect($db_connect,$id,$password));
     if(!empty($tmp)){
         //No errors
         if($id === $tmp[0] and $password === $tmp[1]){

@@ -30,22 +30,19 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             exit();
         }
         //search the database to see if the id already exist
-        $search = false;
+        $error = false;
         require("../model/model_registration_id_search.php");
         $tmp = mysqli_fetch_array(idsearch($db_connect,$_POST['id']), MYSQLI_NUM);
-        mysqli_free_result(idsearch($db_connect,$_POST['id']));
         if(!empty($tmp)){
-            foreach($tmp as $id){
-                if($id === $_POST['id']){
-                    //ID already exists
-                    echo "ID already exists<br>";
-                    require_once("../view/view_registration.html");
-                    $search = true;
-                }
+            if($tmp[0] === $_POST['id']){
+                //ID already exists
+                echo "ID already exists<br>";
+                require_once("../view/view_registration.html");
+                $error = true;
             }
         }
         //No errors, the user is registred
-        if($search !== true){
+        if($error !== true){
             $id = $_POST['id'];
             require("functions/controller_encrypt.php");
             $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
