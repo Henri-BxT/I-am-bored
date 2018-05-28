@@ -1,7 +1,3 @@
-<?php 
-$login = $_SESSION['id']
-?>
-
 <!DOCTYPE HTML>
 
 <html>
@@ -11,7 +7,7 @@ $login = $_SESSION['id']
 <body>
 
 <div align="right">
-<a href="../controller/controller_profil.php">Welcome <?php print("$login");?>
+<a href="../controller/controller_profil.php">Welcome <?php echo $_SESSION['id'];?>
 <br>
 <a href="../controller/controller_logout.php">Logout</a>
 </div>

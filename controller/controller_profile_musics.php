@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../view/view_profile_list.html");
-$db_connect = mysqli_connect("localhost", "root", "", "im_bored");
+$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
 require("../model/model_profile_list.php");
 $select = "title";
 $table = "MUSICS";
