@@ -30,7 +30,6 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             exit();
         }
         //search the database to see if the id already exist
-        $error = false;
         require("../model/model_registration_id_search.php");
         $tmp = mysqli_fetch_array(idsearch($db_connect,$_POST['id']), MYSQLI_NUM);
         if(!empty($tmp)){
@@ -38,19 +37,18 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
                 //ID already exists
                 echo "ID already exists<br>";
                 require_once("../view/view_registration.html");
-                $error = true;
+                exit();
             }
         }
         //No errors, the user is registred
-        if($error !== true){
-            $id = $_POST['id'];
-            require("functions/controller_encrypt.php");
-            $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
-            require("../model/model_registration_insert.php");
-            registration_insert($db_connect,$id,$password);
-            echo "You were registred with the id : ".$_POST['id'].", and the password : ".$_POST['password'];
-            echo "<br><a href='../view/view_home_page.php'>Retour</a>";
-        }
+        $id = $_POST['id'];
+        require("functions/controller_encrypt.php");
+        $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
+        require("../model/model_registration_insert.php");
+        registration_insert($db_connect,$id,$password);
+        echo "You were registred with the id : ".$_POST['id'].", and the password : ".$_POST['password'];
+        echo "<br><a href='../view/view_home_page.php'>Retour</a>";
+
         mysqli_close($db_connect);
     }
     }else {
