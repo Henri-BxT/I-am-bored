@@ -8,7 +8,7 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
     $db_connect = mysqli_connect("localhost", "root", "", "im_bored");
     require("../model/model_connection.php");
-    $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM);
+    $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM) or die ("Error can't connect to the database");
     if(!empty($tmp)){
         //No errors
         if($id === $tmp[0] and $password === $tmp[1]){

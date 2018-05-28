@@ -7,7 +7,7 @@ $select = "title";
 $table = "MUSICS";
 $column = "id_music";
 $id = $_SESSION['id'];
-$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
+$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM) or die ("Error can't connect to the database");
 if(!empty($liste)){
     echo "<tr>";
     foreach($liste as $array){
