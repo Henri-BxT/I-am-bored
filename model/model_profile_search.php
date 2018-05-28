@@ -2,6 +2,21 @@
 
 function movie_profil_search($db_connect, $search, $order){
 	
+	$column = "";
+	
+	if($order = "ASC" || "DESC"){
+		$column = "movies.title";
+	}else if($order = "Type"){
+		$column = "Types.name";
+		$order = "";
+	}else if($order = "old"){
+		$column = "movies.date_diffusion";
+		$order = "ASC";
+	}else if($order = "recent"){
+		$column = "movies.date_diffusion";
+		$order = "DESC";
+	}
+	
 	$login = $_SESSION['id'];
 	
 	$SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
@@ -17,7 +32,7 @@ function movie_profil_search($db_connect, $search, $order){
 	JOIN types ON movie_types.id_type = types.id_type
 	WHERE movies.title LIKE "'.$search.'%"
 	AND members.id_member = "'.$tmp[0].'"
-	ORDER BY "'.$order.'"';
+	ORDER BY "'.$column.'" "'.$order.'" ';
 	
 	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;
