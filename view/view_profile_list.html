@@ -16,8 +16,8 @@ if(isset($_REQUEST['list_movies'])){
 }
 
 
-if(isset($_POST['list_movies'])){
-	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
+if(isset($_REQUEST['list_movies'])){
+	echo "<form action='../controller/controller_profile_movies.php' method='POST''>";
 	echo "<input type='text' name='movie_search' value=''>";
 	echo "<select name='sort'>";
     echo "<option value='ASC'>Title ascending</option>";
@@ -25,11 +25,11 @@ if(isset($_POST['list_movies'])){
     echo "<option value='type'>Type</option>";
     echo "<option value='recent'>Recent</option>";
     echo "<option value='old'>Old</option>";
-	echo "<input type='submit' name='movie' value='Search'>";
+	echo "<input type='submit' name='list_movies' value='Search'>";
 	echo "</select>";
 	echo "</form>";
 }else{
-	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
+	echo "<form action='../controller/controller_profile_musics.php' method='POST''>";
 	echo "<input type='text' name='musics_search' value=''>";
 	echo "<select name='sort'>";
     echo "<option value='ASC'>Title ascending</option>";
@@ -38,7 +38,7 @@ if(isset($_POST['list_movies'])){
     echo "<option value='recent'>Recent</option>";
     echo "<option value='old'>Old</option>";
 	echo "</select>";
-	echo "<input type='submit' name='musics' value='Search'>";
+	echo "<input type='submit' name='list_musics' value='Search'>";
 	echo "</form>";
 }
 
