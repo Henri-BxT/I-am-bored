@@ -1,17 +1,26 @@
 <?php
 
 
+<<<<<<< HEAD
 function movie_profil_search($search, $order){
 	$login = $_SESSION['id'];
 	
 	$db_connexion = mysqli_connect("localhost", "root", "", "im_bored");
+=======
+function movie_profil_search($search,$db_connect){
+	$login = $_SESSION['id'];
+>>>>>>> 59a8e115c6df38fe9609a1adfcd14f387a99b565
 	
 	$SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
+	$REQ = mysqli_query($db_connect, $SQL);
 
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
+<<<<<<< HEAD
 	$SQL = 'SELECT listed_movies.id_movie, movies.title, movies.image, listed_movies.grade, types.name, movies.date_diffusion
+=======
+	$SQL = 'SELECT movies.title, movies.image, listed_movies.grade 
+>>>>>>> 59a8e115c6df38fe9609a1adfcd14f387a99b565
 	FROM listed_movies 
 	JOIN members ON listed_movies.id_member = members.id_member 
 	JOIN movies ON listed_movies.id_movie = movies.id_movie 
@@ -21,7 +30,7 @@ function movie_profil_search($search, $order){
 	AND members.id_member = "'.$tmp[0].'"
 	ORDER BY "'.$order.'"';
 	
-	$REQ = mysqli_query($db_connexion, $SQL);
+	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;
 }
 /*
