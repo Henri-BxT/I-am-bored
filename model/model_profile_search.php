@@ -24,6 +24,7 @@ function movie_profil_search($SESSION, $POST){
 	$movies = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
 	mysqli_free_result($REQ);
+	return $movies;
 }
 
 function music_profil_search($SESSION, $POST){
@@ -48,6 +49,7 @@ function music_profil_search($SESSION, $POST){
 	$musics = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
 	mysqli_free_result($REQ);
+	return $musics;
 }
 
 ?>
