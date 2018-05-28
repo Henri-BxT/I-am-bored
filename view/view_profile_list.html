@@ -10,6 +10,18 @@ if(isset($_REQUEST['list_movies'])){
 }else{
     echo "<form action='../controller/controller_profile_musics.php' method='GET'>";
 }
+
+if(isset($_POST['list_movies'])){
+	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
+	echo "<input type='text' name='movie_search' value=''>";
+	echo "<input type='submit' name='movie' value='Search'>";
+	echo "</form>";
+}else if(isset($_POST['list_musics'])){
+	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
+	echo "<input type='text' name='musics_search' value=''>";
+	echo "<input type='submit' name='musics' value='Search'>";
+	echo "</form>";
+}
 ?>
 <select name="sort">
     <option value="ASC">Title ascending</option>
