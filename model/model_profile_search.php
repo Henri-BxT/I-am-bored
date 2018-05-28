@@ -24,7 +24,7 @@ function movie_profil_search($db_connect, $search, $order){
 
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
-	$SQL = 'SELECT DISTINCT movies.title, movies.image, listed_movies.grade, types.name, movies.date_diffusion
+	$SQL = 'SELECT DISTINCT movies.image, movies.title, listed_movies.grade
 	FROM listed_movies 
 	JOIN members ON listed_movies.id_member = members.id_member 
 	JOIN movies ON listed_movies.id_movie = movies.id_movie 
