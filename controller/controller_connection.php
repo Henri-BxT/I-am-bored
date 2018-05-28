@@ -6,9 +6,9 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     //Encrypt the received password and 
     //compare it to the password attached to the id in the database
     $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
-    $db_connect = mysqli_connect("localhost", "root", "", "im_bored");
+    $db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
     require("../model/model_connection.php");
-    $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM) or die ("Error can't connect to the database");
+    $tmp = mysqli_fetch_array(connect($db_connect,$id,$password), MYSQLI_NUM);
     if(!empty($tmp)){
         //No errors
         if($id === $tmp[0] and $password === $tmp[1]){
