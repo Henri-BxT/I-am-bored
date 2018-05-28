@@ -1,13 +1,13 @@
 <?php
 session_start();
 require_once("../view/view_profile_list.html");
-$db_connect = mysqli_connect("localhost", "root", "", "im_bored");
+$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
 require("../model/model_profile_list.php");
 $select = "title";
 $table = "MUSICS";
 $column = "id_music";
 $id = $_SESSION['id'];
-$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM) or die ("Error can't connect to the database");
+$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
 if(!empty($liste)){
     echo "<tr>";
     foreach($liste as $array){
