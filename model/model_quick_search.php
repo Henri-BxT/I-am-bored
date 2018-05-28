@@ -1,6 +1,4 @@
 <?php
-$search = $_GET['search'];
-$format = $_GET['format'];
 
 function quick_search($search, $format){
 	try{
