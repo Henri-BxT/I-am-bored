@@ -11,10 +11,10 @@ if(!empty($_REQUEST['movie_search'])){
 	if(!empty($liste)){
 		echo "<tr>";
 		foreach($liste as $array){
-			$compt = 0;
 			foreach($array as $movie){
 				echo "<td>".$movie."</td>";
 			}
+		echo "</tr>";
 		}
 		}else{
 			print("Not found");
