@@ -37,28 +37,26 @@ if(isset($_REQUEST['movie_search'])){
 			echo "</tr>";
 			}
 		}else{
+			print("Not found");
+		}
+	}else {
+		require("../model/model_profile_list.php");
+		$select = "title";
+		$table = "MOVIES";
+		$column = "id_movie";
+		$id = $_SESSION['id'];
+		$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM) or die ("Error can't connect to the database");
+		if(!empty($liste)){
+			echo "<tr>";
+			foreach($liste as $array){
+				foreach($array as $movie){
+					echo "<td>".$movie."</td>";
+				}
+			echo "</tr>";
+			};
+		}else{
 			echo "Your list is empty.<BR>";
 		}
-	}else{
-		print("Not found");
-	}
-}else {
-	require("../model/model_profile_list.php");
-	$select = "title";
-	$table = "MOVIES";
-	$column = "id_movie";
-	$id = $_SESSION['id'];
-	$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM) or die ("Error can't connect to the database");
-	if(!empty($liste)){
-		echo "<tr>";
-		foreach($liste as $array){
-			foreach($array as $movie){
-				echo "<td>".$movie."</td>";
-			}
-		echo "</tr>";
-		};
-	}else{
-		echo "Your list is empty.<BR>";
 	}
 }
 mysqli_close($db_connect);
