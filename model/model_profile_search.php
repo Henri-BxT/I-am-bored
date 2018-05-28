@@ -1,24 +1,22 @@
 <?php
 
 
-function movie_profil_search($search){
+function movie_profil_search($search,$db_connect){
 	$login = $_SESSION['id'];
-
-	$db_connexion = mysqli_connect("localhost", "root", "", "im_bored");
 	
 	$SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
+	$REQ = mysqli_query($db_connect, $SQL);
 
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
-	$SQL = 'SELECT listed_movies.id_movie, movies.title, movies.image, listed_movies.grade 
+	$SQL = 'SELECT movies.title, movies.image, listed_movies.grade 
 	FROM listed_movies 
 	JOIN members ON listed_movies.id_member = members.id_member 
 	JOIN movies ON listed_movies.id_movie = movies.id_movie 
 	WHERE movies.title LIKE "'.$search.'%"
 	AND members.id_member = "'.$tmp[0].'"';
 	
-	$REQ = mysqli_query($db_connexion, $SQL);
+	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;
 }
 /*
