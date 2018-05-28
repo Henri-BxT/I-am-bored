@@ -11,30 +11,31 @@ if(isset($_REQUEST['list_movies'])){
 }
 
 if(isset($_POST['list_movies'])){
-	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
+	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
 	echo "<input type='text' name='movie_search' value=''>";
+	echo "<select name='sort'>";
+    echo "<option value='ASC'>Title ascending</option>";
+    echo "<option value='DESC'>Title descending</option>";
+    echo "<option value='type'>Type</option>";
+    echo "<option value='recent'>Recent</option>";
+    echo "<option value='old'>Old</option>";
 	echo "<input type='submit' name='movie' value='Search'>";
+	echo "</select>";
 	echo "</form>";
-}else if(isset($_POST['list_musics'])){
-	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
+}else{
+	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
 	echo "<input type='text' name='musics_search' value=''>";
+	echo "<select name='sort'>";
+    echo "<option value='ASC'>Title ascending</option>";
+    echo "<option value='DESC'>Title descending</option>";
+    echo "<option value='type'>Type</option>";
+    echo "<option value='recent'>Recent</option>";
+    echo "<option value='old'>Old</option>";
+	echo "</select>";
 	echo "<input type='submit' name='musics' value='Search'>";
 	echo "</form>";
 }
-?>
-<select name="sort">
-    <option value="ASC">Title ascending</option>
-    <option value="DESC">Title descending</option>
-    <option value="type">Type</option>
-    <option value="recent">Recent</option>
-    <option value="old">Old</option>
-</select>
-<?php
-if(isset($_REQUEST['list_movies'])){
-    echo "<input type='submit' name='list_movies' value='Sort'>";
-}else{
-    echo "<input type='submit' name='list_musics' value='Sort'>";
-}
+
 ?>
 </form>
 <BR>
