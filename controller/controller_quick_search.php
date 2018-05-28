@@ -5,7 +5,7 @@ require('../model/model_quick_search.php');
 $search = $_GET['search'];
 $format = $_GET['format'];
 
-$liste = mysqli_fetch_all(profile_list($search, $format), MYSQLI_NUM);
+$liste = mysqli_fetch_all(quick_search($search, $format), MYSQLI_NUM);
 if(!empty($liste)){
     echo '<tr>';
     foreach($liste as $array){
