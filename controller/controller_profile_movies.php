@@ -23,17 +23,10 @@ if(isset($_REQUEST['movie_search'])){
 		}
 	}else if(isset($_REQUEST['movie_search'])){
 		$search = $_REQUEST['movie_search'];
-<<<<<<< HEAD
 		$search = (string) $search;
 		$order = $_REQUEST['sort'];
-		print("$order");
 		require_once("../model/model_profile_search.php");
-		$movies = mysqli_fetch_all(movie_profil_search($search, $order), MYSQLI_NUM);
-		print_r($movies);
-=======
-		$search = (string) $search;	
-		require_once("../model/model_profile_search.php");
-		$liste = mysqli_fetch_all(movie_profil_search($search,$db_connect), MYSQLI_NUM);
+		$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search, $order), MYSQLI_NUM);
 		if(!empty($liste)){
 			echo "<tr>";
 			foreach($liste as $array){
@@ -46,7 +39,6 @@ if(isset($_REQUEST['movie_search'])){
 		}else{
 			echo "Your list is empty.<BR>";
 		}
->>>>>>> 59a8e115c6df38fe9609a1adfcd14f387a99b565
 	}else{
 		print("Not found");
 	}
