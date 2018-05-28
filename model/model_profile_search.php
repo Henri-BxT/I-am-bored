@@ -2,17 +2,15 @@
 
 function movie_profil_search($db_connect, $search, $order){
 	
-	$column = "";
-	
-	if($order = "ASC" || "DESC"){
+	if($order == "ASC" || "DESC"){
 		$column = "movies.title";
-	}else if($order = "Type"){
+	}if($order == "type"){
 		$column = "Types.name";
 		$order = "";
-	}else if($order = "old"){
+	}if($order == "old"){
 		$column = "movies.date_diffusion";
 		$order = "ASC";
-	}else if($order = "recent"){
+	}if($order == "recent"){
 		$column = "movies.date_diffusion";
 		$order = "DESC";
 	}
@@ -32,7 +30,8 @@ function movie_profil_search($db_connect, $search, $order){
 	JOIN types ON movie_types.id_type = types.id_type
 	WHERE movies.title LIKE "'.$search.'%"
 	AND members.id_member = "'.$tmp[0].'"
-	ORDER BY "'.$column.'" "'.$order.'" ';
+	ORDER BY '.$column.' '.$order.' ';
+	
 	
 	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;
