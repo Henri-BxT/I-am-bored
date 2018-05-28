@@ -16,13 +16,9 @@ if(isset($_REQUEST['list_movies'])){
     echo "<form action='../controller/controller_profile_musics.php' method='GET'>";
 }
 
-<<<<<<< HEAD
+
 if(isset($_POST['list_movies'])){
 	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
-=======
-if(isset($_REQUEST['list_movies'])){
-	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
->>>>>>> c7f1a8b8bf251de72cfacbac249fa7e1dd8c0f3a
 	echo "<input type='text' name='movie_search' value=''>";
 	echo "<select name='sort'>";
     echo "<option value='ASC'>Title ascending</option>";
@@ -34,11 +30,7 @@ if(isset($_REQUEST['list_movies'])){
 	echo "</select>";
 	echo "</form>";
 }else{
-<<<<<<< HEAD
 	echo "<form action='../controller/controller_profile_search.php' method='POST''>";
-=======
-	echo "<form action='../controller/controller_profile_search.php' method='GET''>";
->>>>>>> c7f1a8b8bf251de72cfacbac249fa7e1dd8c0f3a
 	echo "<input type='text' name='musics_search' value=''>";
 	echo "<select name='sort'>";
     echo "<option value='ASC'>Title ascending</option>";
