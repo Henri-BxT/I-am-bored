@@ -23,10 +23,10 @@ if(isset($_REQUEST['list_movies'])){
 	
 	echo "<form action='../controller/controller_profile_movies.php' method='POST''>";
 	echo "<input type='text' name='movie_search' value=''>";
-	echo "<br><strong><input type='radio' name='asc_desc' value='ASC'>Ascending<br>";
+	echo "<br><input type='radio' name='asc_desc' value='ASC' checked>Ascending<br>";
 	echo "<input type='radio' name='asc_desc' value='DESC'> Descending<br>";
-	echo "<input type='radio' name='name_grade' value='name' >Name<br>";
-	echo "<input type='radio' name='name_grade' value='grade'>Grade<br></strong>";
+	echo "<input type='radio' name='name_grade' value='movies.title' checked>Name<br>";
+	echo "<input type='radio' name='name_grade' value='listed_movies.grade'>Grade<br>";
 	echo "<select name='type'><br>";
 	echo "<option value=''>Type</option>";
 	for($i = 0; $i<count($liste); $i++){

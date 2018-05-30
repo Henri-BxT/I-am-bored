@@ -24,7 +24,17 @@ function type_movie_search(){
 	return $REQ;
 }
 
-function movie_profil_search($db_connect, $search, $order){
+function movie_profil_search($db_connect, $search, $asc_desc, $type, $name_grade){
+	
+	if(empty($name_grade)){
+		$name_grade = "listed_movies.favorit DESC, ";
+	}if(empty($asc_desc)){
+		$asc_desc = "movies.title ASC";
+	}if(empty($type)){
+		$types_name = "";
+	}else{
+		$types_name = "AND Types.name = ";
+	}
 	
 	$login = $_SESSION['id'];
 	
@@ -40,13 +50,15 @@ function movie_profil_search($db_connect, $search, $order){
 	JOIN movie_types ON movie_types.id_movie = movies.id_movie
 	JOIN types ON movie_types.id_type = types.id_type
 	WHERE movies.title LIKE "'.$search.'%"
-	AND members.id_member = "'.$tmp[0].'"
-	ORDER BY '.$column.' '.$order.' ';
+	AND members.id_member = "'.$tmp[0].'" 
+	'.$types_name.' "'.$type.'"
+	ORDER BY '.$name_grade.' '.$asc_desc.' ';
 	
 	
 	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;
 }
+
 /*
 function music_profil_search($login, $search){
 

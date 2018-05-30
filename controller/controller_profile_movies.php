@@ -8,6 +8,7 @@ $db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error
 if((!empty($_REQUEST['movie_search'])) || (isset($_REQUEST['movie_search']))){
 	$search = $_REQUEST['movie_search'];
 	$search = (string) $search;
+	
 	if(!isset($_REQUEST['name_grade'])){
 		$name_grade = "";
 	}
@@ -24,7 +25,7 @@ if((!empty($_REQUEST['movie_search'])) || (isset($_REQUEST['movie_search']))){
 	
 	require_once("../model/model_profile_search.php");
 	
-	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search), MYSQLI_NUM);
+	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search,$asc_desc, $type, $name_grade), MYSQLI_NUM);
 	
 	if(!empty($liste)){
 		echo "<tr>";
