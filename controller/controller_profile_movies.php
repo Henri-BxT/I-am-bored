@@ -5,20 +5,23 @@ require_once("../view/view_profile_list.html");
 
 $db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
 
-if((!empty($_REQUEST['movie_search'])) || (isset($_REQUEST['movie_search']))){
+if(isset($_REQUEST['movie_search'])){
 	$search = $_REQUEST['movie_search'];
 	$search = (string) $search;
 	
 	if(!isset($_REQUEST['name_grade'])){
 		$name_grade = "";
 	}
-	else{
+	else if(empty($_REQUEST['movie_search'])){
+		$name_grade = 'movies.title';
+	} else {
 		$name_grade = $_REQUEST['name_grade'];
 	}
 	if(!isset($_REQUEST['asc_desc'])){
 		$asc_desc = "";
-	}
-	else{
+	} else if(empty($_REQUEST['asc_desc'])){
+		$name_grade = 'ASC';
+	} else{
 		$asc_desc = $_REQUEST['asc_desc'];
 	}
 	$type = $_REQUEST['type'];
