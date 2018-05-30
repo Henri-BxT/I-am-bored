@@ -10,17 +10,12 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	$search = (string) $search;
 	
 	if(!isset($_REQUEST['name_grade'])){
-		$name_grade = "";
-	}
-	else if(empty($_REQUEST[$_REQUEST['media'].'_search'])){
 		$name_grade = $_REQUEST['media'].'s.title';
 	} else {
 		$name_grade = $_REQUEST['name_grade'];
 	}
 	if(!isset($_REQUEST['asc_desc'])){
-		$asc_desc = "";
-	} else if(empty($_REQUEST['asc_desc'])){
-		$name_grade = 'ASC';
+		$asc_desc = "ASC";
 	} else{
 		$asc_desc = $_REQUEST['asc_desc'];
 	}
@@ -28,7 +23,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	
 	require_once("../model/model_profile_search.php");
 	
-	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search,$asc_desc, $type, $name_grade,$_REQUEST['media']), MYSQLI_NUM);
+	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
 	
 	if(!empty($liste)){
 		echo "<tr>";
