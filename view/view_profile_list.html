@@ -10,7 +10,7 @@
 </div>
 <?php
 require_once("../model/model_profile_search.php");
-$liste = mysqli_fetch_all(type_movie_search(), MYSQLI_ASSOC);
+$liste = mysqli_fetch_all(type_movie_search($_REQUEST['media']), MYSQLI_ASSOC);
 	
 echo "<form action='../controller/controller_profile_'.$_REQUEST['media'].'s.php' method='POST''>";
 echo "<input type='text' name=$_REQUEST['media'].'_search' value=''>";
