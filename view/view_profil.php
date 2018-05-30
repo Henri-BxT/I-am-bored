@@ -17,11 +17,13 @@ Welcome <?php echo $_SESSION['id']; ?></a>
 <div align="center">
 <form action="../controller/controller_profile_movies.php" method="POST">
 <input type="submit" name="list_movies" value="Movies">
+<input type="hidden" name="media" value="movie">
 </form>
 <br>
 <br>
 <form action="../controller/controller_profile_musics.php" method="POST">
 <input type="submit" name="list_muscis" value="Musics">
+<input type="hidden" name="media" value="music">
 </form>
 </div>
 
