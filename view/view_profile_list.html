@@ -24,7 +24,7 @@ for($i = 0; $i<count($liste); $i++){
 	echo "<option value=".$liste[$i]['name'].">".$liste[$i]['name']."</option>;";
 }
 echo "</select>";
-echo "<input type='hidden' name='media' value=$_REQUEST['media']>";
+echo "<input type='hidden' name='media' value='".$_REQUEST['media']."']>";
 echo "<input type='submit' name='list_movies' value='Search'>";
 echo "</form>";
 
