@@ -9,48 +9,26 @@
     <a href="controller_logout.php">Logout</a>
 </div>
 <?php
-if(isset($_REQUEST['list_movies'])){
-    echo "<form action='../controller/controller_profile_movies.php' method='GET'>";
-}else{
-    echo "<form action='../controller/controller_profile_musics.php' method='GET'>";
-}
-
-
-if(isset($_REQUEST['list_movies'])){
-
-	require_once("../model/model_profile_search.php");
-	$liste = mysqli_fetch_all(type_movie_search(), MYSQLI_ASSOC);
+require_once("../model/model_profile_search.php");
+$liste = mysqli_fetch_all(type_movie_search(), MYSQLI_ASSOC);
 	
-	echo "<form action='../controller/controller_profile_movies.php' method='POST''>";
-	echo "<input type='text' name='movie_search' value=''>";
-	echo "<br><input type='radio' name='asc_desc' value='ASC'>Ascending<br>";
-	echo "<input type='radio' name='asc_desc' value='DESC'> Descending<br>";
-	echo "<input type='radio' name='name_grade' value='movies.title'>Name<br>";
-	echo "<input type='radio' name='name_grade' value='listed_movies.grade'>Grade<br>";
-	echo "<select name='type'><br>";
-	echo "<option value=''>Type</option>";
-	for($i = 0; $i<count($liste); $i++){
-		echo "<option value=".$liste[$i]['name'].">".$liste[$i]['name']."</option>;";
-	}
-	echo "</select>";
-	echo "<input type='submit' name='list_movies' value='Search'>";
-	echo "</form>";
-}else{
-	echo "<form action='../controller/controller_profile_musics.php' method='POST''>";
-	echo "<input type='text' name='musics_search' value=''>";
-	echo "<select name='sort'>";
-    echo "<option value='ASC'>Title ascending</option>";
-    echo "<option value='DESC'>Title descending</option>";
-    echo "<option value='type'>Type</option>";
-    echo "<option value='recent'>Recent</option>";
-    echo "<option value='old'>Old</option>";
-	echo "</select>";
-	echo "<input type='submit' name='list_musics' value='Search'>";
-	echo "</form>";
+echo "<form action='../controller/controller_profile_'.$_REQUEST['media'].'s.php' method='POST''>";
+echo "<input type='text' name=$_REQUEST['media'].'_search' value=''>";
+echo "<br><input type='radio' name='asc_desc' value='ASC'>Ascending<br>";
+echo "<input type='radio' name='asc_desc' value='DESC'> Descending<br>";
+echo "<input type='radio' name='name_grade' value=$_REQUEST['media'].'s.title'>Name<br>";
+echo "<input type='radio' name='name_grade' value='listed_'.$_REQUEST['media'].'s.grade'>Grade<br>";
+echo "<select name='type'><br>";
+echo "<option value=''>Type</option>";
+for($i = 0; $i<count($liste); $i++){
+	echo "<option value=".$liste[$i]['name'].">".$liste[$i]['name']."</option>;";
 }
+echo "</select>";
+echo "<input type='hidden' name='media' value=$_REQUEST['media']>";
+echo "<input type='submit' name='list_movies' value='Search'>";
+echo "</form>";
 
 ?>
-</form>
 <BR>
 <center>
     <TABLE border="1">
