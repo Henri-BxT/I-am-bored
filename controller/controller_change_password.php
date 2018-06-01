@@ -7,7 +7,7 @@ $tmp_password= "";
 // Button pressed
 if(isset($_POST['validation'])){
 	//If field password is empty
-	if(empty($_POST['password']) || $_POST['password'] == " " || $_POST['password'] == "New Password"){	
+	if(empty($_POST['password']) || $_POST['password'] == " " || $_POST['password'] === "New Password"){	
 		print("The field New Password is empty <br>");
 	}
 	//If the string is too small or too long

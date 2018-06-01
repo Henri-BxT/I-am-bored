@@ -8,13 +8,12 @@ $format = $_GET['format'];
 
 $liste = mysqli_fetch_all(quick_search($search, $format), MYSQLI_NUM);
 if(!empty($liste)){
-    echo '<tr>';
+    echo "<center><table border='1'><tr>";
     foreach($liste as $array){
-        foreach($array as $media){
-            echo '<td>'.$media.'</td></tr>';
+            echo "<td>".$array[0]."</td><td>".$array[1]."</td></tr>";
         }
-    }
+    echo "</center></table>";
 }else{
-    echo 'No result found.</br>';
+    echo '<center>No result found.</br></center>';
 }
 ?>
