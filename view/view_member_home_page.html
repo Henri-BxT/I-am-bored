@@ -5,12 +5,18 @@
 		<title>Member Home Page</title>
 </head>
 <body>
-
-<br>Congratulation. 
-<br>You are connected
-<br>
-<a href="../controller/controller_change_password.php">Change password</a><br>
-<a href="../controller/controller_logout.php">Logout</a>
 <div align="right">
 <a href="controller_profil.php">Welcome <?php echo $_SESSION['id']; ?></a>
 </div>
+<form action="../controller/controller_quick_search.php" method="GET">
+<select name="format">
+	<option value="movies">Film</option> 
+	<option value="musics">Musique</option>
+	<option value="Both">Both</option>
+</select>
+<input type="text" name="search">
+<input type="submit" value="Search">
+</form>
+<br>
+<a href="../controller/controller_change_password.php">Change password</a><br>
+<a href="../controller/controller_logout.php">Logout</a>

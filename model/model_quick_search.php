@@ -12,7 +12,9 @@ function quick_search($search, $format){
 	}
 	
 	//Fetching the search
-	$sql = $db -> query('SELECT t1.image, t1.title, t2.grade FROM '.$format.' AS t1 INNER JOIN listed_'.$format.' AS t2 ON t1.id_'.$format.' = t2.id_'.$format.' WHERE title = '.$search;.'%');
+	$sql = $db -> query('SELECT t1.image, t1.title, t2.grade 
+						FROM '.$format.' AS t1 INNER JOIN listed_'.$format.' AS t2 ON t1.id_'.$format.' = t2.id_'.$format.' 
+						WHERE title = '.$search.'%');
 	$req = mysqli_query($db, $sql);
 
 	$media_list = mysqli_fetch_array($req, MYSQLI_NUM);
