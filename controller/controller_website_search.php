@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("../view/view_quick_search.html");
-require('../model/model_quick_search.php');
+require('../model/model_website_search.php');
 
 $search = $_GET['search'];
 $format = $_GET['format'];
