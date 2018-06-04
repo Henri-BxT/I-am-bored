@@ -1,5 +1,5 @@
 <?php
-function type_movie_search($media){
+function advanced_search($media){
 	
 	$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
 	$REQ = mysqli_query($db_connect, $SQL);
