@@ -21,7 +21,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	}
 	$type = $_REQUEST['type'];
     
-    require('../model/model_website_search.php');
+    require_once('../model/model_website_search.php');
 
     $liste = mysqli_fetch_all(quick_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
     
@@ -34,6 +34,29 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
     }else{
         echo '<center>No result found.</br></center>';
     }
+}else{
+	require("../model/model_website_list.php");
+	$select = "title";
+	$table = strtoupper($_REQUEST['media'].'s');
+	$column = "id_".$_REQUEST['media'];
+	$id = $_SESSION['id'];
+		
+	$liste = mysqli_fetch_all(website_list($db_connect,$select,$table,$column), MYSQLI_NUM);
+		
+	if(!empty($liste)){
+		echo "<tr>";
+		foreach($liste as $array){
+			foreach($array as $media){
+				echo "<td>".$media."</td>";
+			}
+		echo "</tr>";
+		}
+	}else{
+		echo "Your list is empty.<BR>";
+	}
 }
+	
+mysqli_close($db_connect);
+echo "</TABLE></CENTER><BR><a href='controller_profil.php'>Retour</a></BODY></HTML>";
 
 ?>
