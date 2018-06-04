@@ -39,7 +39,7 @@ function movie_profil_search($db_connect, $search, $asc_desc, $type, $name_grade
 	$REQ = mysqli_query($db_connect, $SQL);
 
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
-	$SQL = 'SELECT DISTINCT '.$media.'s.image, '.$media.'s.title, listed_'.$media.'s.grade
+	$SQL = 'SELECT DISTINCT '.$media.'s.image, '.$media.'s.title, listed_'.$media.'s.grade, '.$media.'s.id_'.$media.'
 	FROM listed_'.$media.'s 
 	JOIN members ON listed_'.$media.'s.id_member = members.id_member 
 	JOIN '.$media.'s ON listed_'.$media.'s.id_'.$media.' = '.$media.'s.id_'.$media.'
