@@ -44,16 +44,14 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	$liste = mysqli_fetch_all(website_list($db_connect,$select,$table,$column), MYSQLI_NUM);
 		
 	if(!empty($liste)){
-		echo "<tr>";
-		foreach($liste as $array){
-			foreach($array as $media){
-				echo "<td>".$media."</td>";
-			}
-		echo "</tr>";
-		}
-	}else{
-		echo "Your list is empty.<BR>";
-	}
+        	echo "<center><table border='1'><tr>";
+        	foreach($liste as $array){
+            		echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$format."'>".$array[0]."</a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$format."'>".$array[1]."</a></td></tr>";
+        	}
+        	echo "</center></table>";
+    	}else{
+        	echo '<center>No result found.</br></center>';
+    	}
 }
 	
 mysqli_close($db_connect);
