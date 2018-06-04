@@ -6,7 +6,7 @@ require('../model/model_website_search.php');
 $search = $_GET['search'];
 $format = $_GET['format'];
 
-$liste = mysqli_fetch_all(quick_search($search, $format), MYSQLI_NUM);
+$liste = mysqli_fetch_all(quick_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
 if(!empty($liste)){
     echo "<center><table border='1'><tr>";
     foreach($liste as $array){
