@@ -8,7 +8,7 @@
 
 <div align="right">
 <h4>Welcome <?php echo $_SESSION['id']; ?></h4>
-<a href="../controller/controller_profil.php"><img src='..\ressources\icons\Profile.png' width='50px' height='50px'></a><br>
+<a href="../controller/controller_profil.php"><img src='..\ressources\icons\Profile.png' width='30px' height='30px'></a><br>
 <a href="../controller/controller_logout.php"><img src='..\ressources\icons\Logout.png' width='30px' height='30px'></a>
 </div>
 <br><br>
