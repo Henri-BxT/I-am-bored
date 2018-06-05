@@ -31,7 +31,7 @@ function quick_search($db_connect, $search, $asc_desc, $type, $name_grade, $medi
 			FROM '.$media.'s AS t1 INNER JOIN '.$media.'_types AS t2 ON t2.id_'.$media.' = t2.id_'.$media.' 
 			INNER JOIN types AS t3 ON t2.id_type = t3.id_type 
 			WHERE t1.title LIKE "%te%" 
-			ORDER BY t1.title DESC;';
+			ORDER BY t1.title ASC;';
 	
 			
 	
