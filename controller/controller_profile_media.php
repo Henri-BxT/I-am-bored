@@ -51,5 +51,4 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 }
 	
 mysqli_close($db_connect);
-echo "</TABLE></CENTER><BR><a href='controller_profil.php'>Retour</a></BODY></HTML>";
 ?>

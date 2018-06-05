@@ -55,6 +55,5 @@ if(!empty($_REQUEST['search'])){
 }
 	
 mysqli_close($db_connect);
-echo "</TABLE></CENTER><BR><a href='controller_member_home_page.php'>Retour</a></BODY></HTML>";
 
 ?>

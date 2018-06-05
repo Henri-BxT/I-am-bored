@@ -4,9 +4,9 @@
 <HEAD><TITLE>Profile</TITLE></HEAD>
 <BODY>
 <div align="right">
-    Welcome <?php echo $_SESSION['id']; ?></a>
-    <a href="../controller/controller_profil.php">Return</a>
-    <a href="controller_logout.php">Logout</a>
+    <h4>Welcome <?php echo $_SESSION['id']; ?></h4>
+    <a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\Return.png' width='30px' height='30px'></a>
+    <a href="../controller/controller_logout.php"><img src='..\ressources\icons\Logout.png' width='30px' height='30px'></a>
 </div>
 <?php
 require_once("../model/model_profile_search.php");
