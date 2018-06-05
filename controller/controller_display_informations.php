@@ -17,7 +17,6 @@ if(!empty($data)){
     if(!empty($data)){
         $data = mysqli_fetch_array(search_favorit($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
         if(!empty($data[0])){
-            echo "Déjà dans vos Favoris !";
             echo "<br><a href='controller_manage_list.php?favorit=remove&id=2&media=movie'><img src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
         }else{
             echo "<br><a href='controller_manage_list.php?list=remove&id=2&media=movie'><img src='../ressources/icons/X.png' width='50px' height='50px'></a>";
