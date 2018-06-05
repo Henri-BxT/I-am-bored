@@ -17,13 +17,13 @@ if(!empty($data)){
     if(!empty($data)){
         $data = mysqli_fetch_array(search_favorit($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
         if(!empty($data[0])){
-            echo "<br><a href='controller_manage_list.php?favorit=remove&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
+            echo "<br><a href='controller_manage_list.php?favorit=remove&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/favorit.gif' width='50px' height='50px'></a>";
         }else{
-            echo "<br><a href='controller_manage_list.php?list=remove&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/X.png' width='50px' height='50px'></a>";
-            echo "<br><a href='controller_manage_list.php?favorit=add&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/unfavorit.png' width='50px' height='50px'></a>";
+            echo "<br><a href='controller_manage_list.php?list=remove&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/added.gif' width='50px' height='50px'></a>";
+            echo "<br><a href='controller_manage_list.php?favorit=add&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/favorit.gif' width='50px' height='50px'></a>";
         }
     }else{
-        echo "<br><a href='controller_manage_list.php?list=add&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/add.png' width='50px' height='50px'></a>";
+        echo "<br><a href='controller_manage_list.php?list=add&id='".$_REQUEST['id']."'&media=movie'><img src='../ressources/icons/added.gif' width='50px' height='50px'></a>";
     }
 }else{
     print("Not found");
