@@ -29,7 +29,7 @@ if(!empty($_REQUEST['search'])){
     if(!empty($liste)){
         echo "<center><table border='1'><tr>";
         foreach($liste as $array){
-            echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td></tr>";
+            echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>".$array[3]."</td></tr>";
         }
         echo "</center></table>";
     }else{
@@ -46,7 +46,7 @@ if(!empty($_REQUEST['search'])){
 	if(!empty($liste)){
         	echo "<center><table border='1'><tr>";
         	foreach($liste as $array){
-            	echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td></tr>";
+            	echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>".$array[3]."</td></tr>";
         	}
         	echo "</center></table>";
     	}else{
