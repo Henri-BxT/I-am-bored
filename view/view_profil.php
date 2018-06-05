@@ -15,14 +15,10 @@
 
 <br>
 <div align="center">
-<form name="list_movies" id="list_movies" action="../controller/controller_profile_media.php" method="POST">
-<img src="..\ressources\icons\movie.png" onClick="document.getElementById('list_movies').submit()" name="list_movies" width=250 height=250 title="supprimer"><input type="hidden" name="media" value="movie">
-</form>
+<a href="../controller/controller_profile_media.php?profil=list_movies&media=movie"><img src="..\ressources\icons\movie.png" width='150px' height='150px'></a>
 <br>
 <br>
-<form name="list_music" id="list_music" action="../controller/controller_profile_media.php" method="POST">
-<img src="..\ressources\icons\music.png" onClick="document.getElementById('list_music').submit()" name="list_music" width=250 height=250 title="supprimer"><input type="hidden" name="media" value="movie">
-<input type="hidden" name="media" value="music">
+<a href="../controller/controller_profile_media.php?profil=list_movies&media=music"><img src="..\ressources\icons\music.png" width='150px' height='150px'></a>
 </form>
 </div>
 
