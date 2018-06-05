@@ -45,7 +45,7 @@ function movie_profil_search($db_connect, $search, $asc_desc, $type, $name_grade
 	JOIN '.$media.'s ON listed_'.$media.'s.id_'.$media.' = '.$media.'s.id_'.$media.'
 	JOIN '.$media.'_types ON '.$media.'_types.id_'.$media.' = '.$media.'s.id_'.$media.'
 	JOIN types ON '.$media.'_types.id_type = types.id_type
-	WHERE '.$media.'s.title LIKE "'.$search.'%"
+	WHERE '.$media.'s.title LIKE "%'.$search.'%"
 	AND members.id_member = "'.$tmp[0].'" 
 	'.$types_name.' "'.$type.'"
 	ORDER BY '.$req.' ';
