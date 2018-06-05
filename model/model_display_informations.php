@@ -1,7 +1,7 @@
 <?php
 //Information search on the media
-function display_info($db_connect, $media, $id){
-    $sql = mysqli_query($db_connect, 'SELECT t1.title, t1.date_diffusion, t1.image, t1.synopsis
+function display_info($db_connect, $media, $id,$select){
+    $sql = mysqli_query($db_connect, 'SELECT t1.title, t1.aired, '.$select.' 
                                         FROM '.$media.'s t1
                                         WHERE t1.id_'.$media.' = "'.$id.'"');
     return $sql;
