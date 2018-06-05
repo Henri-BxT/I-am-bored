@@ -9,15 +9,17 @@
 <h4>Welcome <?php echo $_SESSION['id']; ?></h4>
 <a href="../controller/controller_profil.php"><img src='..\ressources\icons\Profile.png' width='50px' height='50px'></a>
 </div>
+<div align="left">
 <form action="../controller/controller_website_search.php" method="GET">
 <select name="media">
 	<option value="movie">Film</option> 
 	<option value="music">Musique</option>
 	<option value="Both">Both</option>
 </select>
-<input type="text" name="search">
+<input type="text" name="search" size="30">
 <input type="submit" value="Search">
 </form>
+</div>
 <br>
 <a href="../controller/controller_change_password.php"><img src='..\ressources\icons\settings.png' width='30px' height='30px'></a><br>
 <a href="../controller/controller_logout.php"><img src='..\ressources\icons\Logout.png' width='30px' height='30px'></a>
