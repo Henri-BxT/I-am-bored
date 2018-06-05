@@ -1,9 +1,10 @@
 <?php
 //Information search on the media
 function display_info($db_connect, $media, $id){
-    $sql = mysqli_query($db_connect, 'SELECT title, date_diffusion, image, synopsis
-                                        FROM '.$media.'s
-                                        WHERE '.$media.'s.id_'.$media.' = "'.$id.'"');
+    $sql = mysqli_query($db_connect, 'SELECT t1.title, t1.date_diffusion, t1.image, t1.synopsis, t2.grade
+                                        FROM '.$media.'s t1
+                                        JOIN LISTED_'.$media.'s t2 ON t1.id_'.$media.' = t2.id_'.$media.' 
+                                        WHERE t1.id_'.$media.' = "'.$id.'"');
     return $sql;
 }
 //Search if the media is in the list of the user
