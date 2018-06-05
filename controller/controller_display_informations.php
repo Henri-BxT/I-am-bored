@@ -5,6 +5,7 @@ require_once("../view/view_display_informations.html");
 $db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
 require("../model/model_display_informations.php");
 $data = mysqli_fetch_all(display_info($db_connect,$_REQUEST['media'],$_REQUEST['id']), MYSQLI_NUM);
+print_r($data);
 if(!empty($data)){
     foreach($data as $infos){
         echo "<img src=".$infos[2]." width='200px' height='200px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ".$infos[4]."<br>Synopsis : ".$infos[3]."<p>";
