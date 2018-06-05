@@ -50,7 +50,7 @@ if(!empty($_REQUEST['search'])){
         	}
         	echo "</center></table>";
     	}else{
-        	echo '<center>No result found.</br></center>';
+        	echo '<center><h1>No result found.</h1></br><img src="not_found.gif" style="width:500px;height:281px;"></center>';
     	}
 }
 	
