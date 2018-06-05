@@ -37,7 +37,7 @@ if(!empty($_REQUEST['search'])){
     }
 }else{
 	require("../model/model_website_list.php");
-	$select = "t1.image,t1.title, t1.id_".$_REQUEST['media'];
+	$select = "t1.image,t1.title, t1.id_".$_REQUEST['media']."(SELECT AVG(grade) FROM listed_'.$media.'s WHERE id_'.$media.' = t1.id_'.$media.')";
 	$table = strtoupper($_REQUEST['media'].'s');
 	$column = "id_".$_REQUEST['media'];
 
