@@ -8,8 +8,9 @@
 
 <div align="right">
 <h4>Welcome <?php echo $_SESSION['id']; ?></h4>
-<a href="../controller/controller_profil.php"><img src='..\ressources\icons\Profile.png' width='30px' height='30px'></a><br>
+<a href="../controller/controller_profil.php"><img src='..\ressources\icons\Profile.png' width='30px' height='30px'></a>
 <a href="../controller/controller_logout.php"><img src='..\ressources\icons\Logout.png' width='30px' height='30px'></a>
+<a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\Return.png' width='30px' height='30px'></a>
 </div>
 <br><br>
 
@@ -23,6 +24,5 @@ Re-type Password <input type="password" name="pass_confirmation" value="">
 <input type="submit" name="validation" value="Reset Password"><br>
 </form>
 <br>
-<a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\Return.png' width='30px' height='30px'></a>
 </body>
 </html>
