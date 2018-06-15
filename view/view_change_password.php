@@ -9,8 +9,8 @@
 <div align="right">
 <h4>Welcome <?php echo $_SESSION['id']; ?></h4>
 <a href="../controller/controller_profil.php"><img src='..\ressources\icons\profile.gif' width='30px' height='30px'></a>
-<a href="../controller/controller_logout.php"><img src='..\ressources\icons\logout.png' width='30px' height='30px'></a>
 <a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\return.png' width='30px' height='30px'></a>
+<a href="../controller/controller_logout.php"><img src='..\ressources\icons\logout.png' width='30px' height='30px'></a>
 </div>
 <br><br>
 
