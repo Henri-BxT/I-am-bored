@@ -51,7 +51,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 				echo"<img id = '".$i."' src='../ressources/icons/full_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
 			}
 			if($array[3]<6){
-				$empty_star = 6 - $array[3];
+				$empty_star = 5 - $array[3];
 				for($i=1; $i <= $empty_star; $i++){
 					echo"<img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
 				}
