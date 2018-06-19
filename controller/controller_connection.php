@@ -15,6 +15,7 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
         if(strtolower($id) === strtolower($tmp[0]) and $password === $tmp[1]){
             session_start();
             $_SESSION['id'] = $tmp[0];
+            $_SESSION['id2'] = str_replace(".","'",$_SESSION['id']);
             require_once("controller_member_home_page.php");
         } 
     //Error with the id or password

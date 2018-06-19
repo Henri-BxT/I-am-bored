@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['id'])){
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 require_once("../view/view_display_informations.html");
@@ -19,6 +19,7 @@ if(!empty($data)){
             echo "Synopsis : ".$infos[3]."<p>";
         }
     }
+if(isset($_SESSION['id'])){
     require("../model/model_registration_id_search.php");
     $id_member = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']), MYSQLI_NUM);
     $data = mysqli_fetch_array(search_list($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
@@ -33,6 +34,7 @@ if(!empty($data)){
     }else{
         echo "<br><a href='controller_manage_list.php?list=add&id=".$_REQUEST['id']."&media=movie'><img src='../ressources/icons/add.png' width='50px' height='50px'></a>";
     }
+}
 }else{
     print("Not found");
 }

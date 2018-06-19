@@ -6,8 +6,8 @@
 </head>
 <body>
 <div align="right">
-<h4>Welcome <?php echo $_SESSION['id']; ?></h4>
-<a href="../controller/controller_profil.php"><img src='..\ressources\icons\profile.gif' width='30px' height='30px'></a>
+<h4>Welcome <?php echo $_SESSION['id2']; ?></h4>
+<a href="../controller/controller_profil.php"><img src='..\ressources\icons\profile.png' width='30px' height='30px'></a>
 <a href="../controller/controller_change_password.php"><img src='..\ressources\icons\settings.png' width='30px' height='30px'></a>
 <a href="../controller/controller_logout.php"><img src='..\ressources\icons\logout.png' width='30px' height='30px'></a>
 </div>
@@ -16,7 +16,6 @@
 <select name="media">
 	<option value="movie">Film</option> 
 	<option value="music">Musique</option>
-	<option value="Both">Both</option>
 </select>
 <input type="text" name="search" size="30">
 <input type="submit" value="Search">
