@@ -12,7 +12,7 @@
 
 <div align="right">
 <form action="../view/view_sign_in.html" method="POST">
-<input align="right" type="submit" name="Log in" value="Sign In">
+<input align="right" type="submit" name="Log in" value="Log in">
 </form>
 <form action="../view/view_registration.html" method="POST">
 <input align="right" type="submit" name="Sign Up" value="Sign Up">
