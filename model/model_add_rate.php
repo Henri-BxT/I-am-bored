@@ -1,8 +1,20 @@
 <?php
+function add_grade_movie($media,$grade,$id_works){
+	
+	session_start();
+	$host = "localhost";
+	$user = "root";
+	$bdd = "im_bored";
+	$password = "";
 
-$login = $_SESSION['id'];
+	$db_connexion = mysqli_connect($host, $user, $password, $bdd) or die ("Error can't connect to the database");
+	$REQ = mysqli_query($db_connexion, 'SELECT id_member FROM members WHERE login like "'.$_SESSION["id"].'"');
+	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
+	mysqli_free_result($REQ);
+	$REQ = mysqli_query($db_connexion, 'UPDATE listed_'.$media.'s SET grade = "'.$grade.'" WHERE id_'.$media.' = "'.$id_works.'" AND id_member = "'.$tmp[0].'"');
+}
 
-function add_grade_movie($SESSION,$POST){
+function get_grade($media,$id_works) {
 	
 	$host = "localhost";
 	$user = "root";
@@ -10,55 +22,12 @@ function add_grade_movie($SESSION,$POST){
 	$password = "";
 
 	$db_connexion = mysqli_connect($host, $user, $password, $bdd) or die ("Error can't connect to the database");
-
-	$SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
-
+	$REQ = mysqli_query($db_connexion, 'SELECT id_member FROM members WHERE login like "'.$_SESSION["id"].'"');
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
-
 	mysqli_free_result($REQ);
-	
-	/*UPDATE listed_movies 
-	JOIN members
-	ON listed_movies.id_member = members.id_member
-	AND "1" = listed_movies.id_movie
-	SET listed_movies.grade = "5";
-	*/
-	
-	$SQL = 'UPDATE listed_movies JOIN members ON listed_movies."'.$tmp[0].'" = members."'.$tmp[0].'"  AND "'.$id_works.'" = listed_movie."'.$id_works.'" SET listed_movies.grade = "'.$grade.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
-
-
-}
-
-function add_grade_music($SESSION,$POST){
-	
-	$host = "localhost";
-	$user = "root";
-	$bdd = "im_bored";
-	$password = "";
-
-	$db_connexion = mysqli_connect($host, $user, $password, $bdd) or die ("Error can't connect to the database");
-
-	$SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
-
+	$REQ = mysqli_query($db_connexion, 'SELECT grade FROM listed_'.$media.'s WHERE id_'.$media.' = "'.$id_works.'" AND id_member = "'.$tmp[0].'"');
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
-
-	mysqli_free_result($REQ);
-	
-	/*UPDATE listed_musics 
-	JOIN members
-	ON listed_musics.id_member = members.id_member
-	AND "1" = listed_musics.id_music
-	SET listed_musics.grade = "5";
-	*/
-	
-	$SQL = 'UPDATE listed_musics JOIN members ON listed_musics."'.$tmp[0].'" = members."'.$tmp[0].'"  AND "'.$id_works.'" = listed_music."'.$id_works.'" SET listed_musics.grade = "'.$grade.'"';
-	$REQ = mysqli_query($db_connexion, $SQL);
-
-
+	return $tmp[0];
 }
-
 ?>
 

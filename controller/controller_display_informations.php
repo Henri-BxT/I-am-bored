@@ -1,5 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+if(!isset($_SESSION['id'])){
     session_start();
 }
 require_once("../view/view_display_informations.html");
@@ -14,12 +14,21 @@ if($_REQUEST['media'] === "movie"){
 $data = mysqli_fetch_all(display_info($db_connect,$_REQUEST['media'],$_REQUEST['id'],$select), MYSQLI_NUM);
 if(!empty($data)){
     foreach($data as $infos){
-        echo "<img src=".$infos[2]." width='200px' height='200px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : XXX<br>";
+        echo "<img src=".$infos[2]." width='200px' height='200px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ";
+		if(isset($_REQUEST['grade'])) {
+			$grade = $_REQUEST['grade'];
+		} else {
+			require("../model/model_add_rate.php");
+			$grade = get_grade($_REQUEST['media'],$_REQUEST['id']);
+		}
+		for($i = 1; $i < 6; $i++) {
+			print ("<a href = 'controller_add_grade?grade=".$i."&media=".$_REQUEST["media"]."&id=".$_REQUEST['id']."'><img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$grade."'></a>");
+		}
+		echo "<br>";
         if($_REQUEST['media'] === "movie"){
             echo "Synopsis : ".$infos[3]."<p>";
         }
     }
-if(isset($_SESSION['id'])){
     require("../model/model_registration_id_search.php");
     $id_member = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']), MYSQLI_NUM);
     $data = mysqli_fetch_array(search_list($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
@@ -34,7 +43,6 @@ if(isset($_SESSION['id'])){
     }else{
         echo "<br><a href='controller_manage_list.php?list=add&id=".$_REQUEST['id']."&media=movie'><img src='../ressources/icons/add.png' width='50px' height='50px'></a>";
     }
-}
 }else{
     print("Not found");
 }
