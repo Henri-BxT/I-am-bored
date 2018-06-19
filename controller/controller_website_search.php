@@ -32,8 +32,16 @@ if(!empty($_REQUEST['search'])){
 			if($array[3]===null){
 				$array[3] = "Pas de note";
 			}
-            echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>".$array[3]."</td></tr>";
-        }
+            echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>";				
+		for($i=0;$i<5;$i++){
+			if($i<=$array[3]){
+				echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+			}else{
+				echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
+			}
+		}
+		echo "</td></tr>";	
+	}
         echo "</center></table>";
     }else{
         echo '<center>No result found.</br></center>';
