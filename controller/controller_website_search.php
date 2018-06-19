@@ -52,7 +52,17 @@ if(!empty($_REQUEST['search'])){
 				if($array[3]===null){
 					$array[3] = "Pas de note";
 				}	
-            	echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>".$array[3]."</td></tr>";
+				echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>";
+				for($i = 1; $i <= $array[3]; $i++) {
+					echo"<img id = '".$i."' src='../ressources/icons/full_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+				}
+				if($array[3]<6){
+					$empty_star = 6 - $array[3];
+					for($i=1; $i <= $empty_star; $i++){
+						echo"<img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+					}
+				}
+				echo "</td></tr>";	
         	}
         	echo "</center></table>";
     	}else{

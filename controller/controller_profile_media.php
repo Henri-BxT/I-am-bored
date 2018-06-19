@@ -42,8 +42,24 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 		
 	if(!empty($liste)){
 		echo "<center><table border='1'><tr>";
-		foreach($liste as $array)
-			echo "<td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'><img src=".$array[1]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'>".$array[2]."</a></td></tr>";
+		foreach($liste as $array){
+			if($array[3]===null){
+				$array[3] = "Pas de note";
+			}	
+			echo "<td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'><img src=".$array[1]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'>".$array[2]."</a></td><td>";
+			for($i = 1; $i <= $array[3]; $i++) {
+				echo"<img id = '".$i."' src='../ressources/icons/full_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+			}
+			if($array[3]<6){
+				$empty_star = 6 - $array[3];
+				for($i=1; $i <= $empty_star; $i++){
+					echo"<img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+				}
+			}
+			echo "</td></tr>";	
+		}
+		echo "</center></table>";
+
 	}else{
 		echo "Your list is empty.<br>";
 	}
