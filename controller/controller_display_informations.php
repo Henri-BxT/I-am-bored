@@ -39,12 +39,10 @@ if(!empty($data)){
                 print ("<a href = 'controller_add_grade?grade=".$i."&media=".$_REQUEST["media"]."&id=".$_REQUEST['id']."'><img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$grade."'></a>");
             }
         }else{
-            for($i = 1; $i <= $grade[3]; $i++) {
-                echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
-            }
-            if($grade[3]<6){
-                $empty_star = 5 - $grade[3];
-                for($i=1; $i <= $empty_star; $i++){
+            for($i=0;$i<5;$i++){
+                if($i<=$grade[3]){
+                    echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+                }else{
                     echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
                 }
             }
