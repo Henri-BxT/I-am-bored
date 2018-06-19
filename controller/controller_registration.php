@@ -36,8 +36,19 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             //search the database to see if the id already exist
             require("../model/model_registration_id_search.php");
             $id = $_POST['id'];
-            $id = str_replace( "'",".",$id);
             $id = strtoupper($id);
+            for($i=0;$i<strlen($id);$i++){
+                if(ord($id[$i])<65 or ord($id[$i])>90){
+                    if(ord($id[$i])<47 or ord($id[$i])>57){
+                        if(ord($id[$i]) !== 39){
+                            echo "Unauthorized special caracter detected<br>";
+                            require_once("../view/view_registration.html");
+                            exit();
+                        }
+                    }
+                }
+            }
+            $id = str_replace( "'",".",$id);
             $tmp = mysqli_fetch_array(idsearch($db_connect,$id), MYSQLI_NUM);
             if($tmp[0] === $id){
                 //ID already exists
