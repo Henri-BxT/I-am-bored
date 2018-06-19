@@ -17,7 +17,7 @@ if(!empty($data)){
         echo "<img src=".$infos[2]." width='200px' height='200px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ";
 		if(isset($_REQUEST['grade'])) {
 			$grade = $_REQUEST['grade'];
-		} else {
+		}else {
             if(!isset($_SESSION['id'])){
                 $query = explode("&",$_SERVER['QUERY_STRING']);
                 $id = explode("=",$query[0]);
@@ -38,7 +38,17 @@ if(!empty($data)){
             for($i = 1; $i < 6; $i++) {
                 print ("<a href = 'controller_add_grade?grade=".$i."&media=".$_REQUEST["media"]."&id=".$_REQUEST['id']."'><img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$grade."'></a>");
             }
-        }
+        }else{
+            for($i=0;$i<5;$i++){
+				if($i<=$grade[3]){
+					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+				}else{
+					echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
+				}
+			}
+			echo "</td></tr>";	
+		}
+		echo "</center></table>";
 		echo "<br>";
         if($_REQUEST['media'] === "movie"){
             echo "Synopsis : ".$infos[3]."<p>";

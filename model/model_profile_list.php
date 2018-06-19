@@ -4,7 +4,7 @@ function profile_list($db_connect,$select,$table,$column,$id){
                                         FROM $table
                                         INNER JOIN LISTED_$table LIST ON $table.$column = LIST.$column
                                         AND id_member = (SELECT id_member FROM MEMBERS WHERE login='$id')
-                                        ORDER BY  favorit ASC, title ASC;");
+                                        ORDER BY  favorit DESC, title ASC;");
     return $list;
 }
 ?>

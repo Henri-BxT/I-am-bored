@@ -26,20 +26,24 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	if(!empty($liste)){
 		echo "<center><table border='1'><tr>";
 		foreach($liste as $array){
-			if($array[3]===null){
-				$array[3] = "Pas de note";
+			if($array[2]===null){
+				$array[2] = "Pas de note";
 			}	
-			echo "<td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td>";
-			for($i = 1; $i <= $array[3]; $i++) {
-				echo"<img id = '".$i."' src='../ressources/icons/full_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
-			}
-			if($array[3]<6){
-				$empty_star = 5 - $array[3];
-				for($i=1; $i <= $empty_star; $i++){
-					echo"<img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+			echo "<td><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td>";
+			for($i=1;$i<6;$i++){
+				if($i<=$array[2]){
+					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+				}else{
+					echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
 				}
 			}
-			echo "</td></tr>";	
+			echo "</td>";
+			if($array[4] === "1"){
+				echo "<td><img src='../ressources/icons/unfavorit.png' width='20px' height='20px'></td></tr>";
+			}else{
+				echo "<td><img src='../ressources/icons/favorit.png' width='20px' height='20px'></td></tr>";
+			}
+	
 		}
 		echo "</center></table>";
 	}else{
@@ -47,7 +51,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	}
 }else{
 	require("../model/model_profile_list.php");
-	$select = ' '.$_REQUEST['media'].'s.id_'.$_REQUEST['media'].', image, title, LIST.grade';
+	$select = ' '.$_REQUEST['media'].'s.id_'.$_REQUEST['media'].', image, title, LIST.grade, LIST.favorit';
 	$table = strtoupper($_REQUEST['media'].'s');
 	$column = "id_".$_REQUEST['media'];
 	$id = $_SESSION['id'];
@@ -57,20 +61,21 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	if(!empty($liste)){
 		echo "<center><table border='1'><tr>";
 		foreach($liste as $array){
-			if($array[3]===null){
-				$array[3] = "Pas de note";
-			}	
 			echo "<td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'><img src=".$array[1]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'>".$array[2]."</a></td><td>";
-			for($i = 1; $i <= $array[3]; $i++) {
-				echo"<img id = '".$i."' src='../ressources/icons/full_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
-			}
-			if($array[3]<6){
-				$empty_star = 5 - $array[3];
-				for($i=1; $i <= $empty_star; $i++){
-					echo"<img id = '".$i."' src='../ressources/icons/empty_star.png' width='20px' height='20px' data-grade = '".$array[3]."'>";
+			for($i=1;$i<6;$i++){
+				if($i<=$array[3]){
+					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+				}else{
+					echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
 				}
 			}
-			echo "</td></tr>";	
+
+			echo "</td>";
+			if($array[4] === "1"){
+				echo "<td><img src='../ressources/icons/unfavorit.png' width='20px' height='20px'></td></tr>";
+			}else{
+				echo "<td><img src='../ressources/icons/favorit.png' width='20px' height='20px'></td></tr>";
+			}
 		}
 		echo "</center></table>";
 

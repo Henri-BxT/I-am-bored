@@ -5,6 +5,9 @@
 		<title>Profil</title>
 </head>
 <body>
+<div align="center">
+<h1>I'm Bored</h1></div>
+</div>
 
 
 <div align="right">
