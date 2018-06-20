@@ -20,7 +20,6 @@ body {
 <?php
 require_once("../model/model_profile_search.php");
 $liste = mysqli_fetch_all(type_movie_search($_REQUEST['media']), MYSQLI_ASSOC);
-	
 echo "<form action='../controller/controller_profile_media.php' method='POST''>";
 echo "<input type='text' name='".$_REQUEST['media']."_search' value=''>";
 echo "<br><input type='radio' name='asc_desc' value='ASC'>Ascending<br>";
@@ -30,7 +29,7 @@ echo "<input type='radio' name='name_grade' value='listed_".$_REQUEST['media']."
 echo "<select name='type'><br>";
 echo "<option value=''>Type</option>";
 for($i = 0; $i<count($liste); $i++){
-	echo "<option value=".$liste[$i]['name'].">".$liste[$i]['name']."</option>;";
+	echo "<option value=".$liste[$i]['name'].">".$liste[$i]['name'] = str_replace("_"," ", $liste[$i]['name'])."</option>;";
 }
 echo "</select>";
 echo "<input type='hidden' name='media' value='".$_REQUEST['media']."']>";
