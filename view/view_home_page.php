@@ -1,15 +1,8 @@
-<!DOCTYPE HTML>
-
-<html>
-<head>
-		<title>Home</title>
-</head>
-<body>
-
-<div align="center">
-<h1>I'm Bored</h1></div>
-</div>
-
+<HTML>
+<HEAD><TITLE>Connexion</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
+</HEAD>
 <div align="right">
 <form action="../view/view_sign_in.html" method="POST">
 <input align="right" type="submit" name="Log in" value="Log in">

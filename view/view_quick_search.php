@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
 
 <HTML>
-<HEAD><TITLE>Profile</TITLE></HEAD>
+<HEAD><TITLE>Profile</TITLE>
+<style>
+body {
+    background-color: #282828;
+}
+</style>
+</HEAD>
 <BODY>
 <div align="center">
 <h1>I'm Bored</h1></div>

@@ -1,13 +1,19 @@
 <HTML>
-<HEAD><TITLE>I'm Bored - Registration</TITLE></HEAD>
+<HEAD><TITLE>I'm Bored - Registration</TITLE>
+<style>
+body {
+    background-color: #282828;
+}
+</style>
+</HEAD>
 <BODY>
 <div align="center">
     <h1>I'm Bored</h1></div>
 </div>                
 <form action="../controller/controller_registration.php" method="POST">
-ID : <input type='textarea' name='id' value=''> Required between 3 and 20 characters<br>
-Password : <input type='password' name='password' value=''> Required between 6 and 14 characters<br>
-Confirmation : <input type='password' name='password2' value=''><br>
+Username : <input type='textarea' name='id' value='' placeholder="Username"> Required between 3 and 20 characters<br>
+Password : <input type='password' name='password' value='' placeholder="Password"> Required between 6 and 14 characters<br>
+Re-type Password : <input type='password' name='password2' value='' placeholder="Password"><br>
 <input type="checkbox" name="privacypolicies" value="read">I have read the <a href="../view/view_privacy_policies.html">privacy policies</a><br>
 <input type='submit' name='inscription' value='Confirm'><br>
 <a href="../view/view_home_page.php">Retour</a>

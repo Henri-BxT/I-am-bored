@@ -3,6 +3,11 @@
 <html>
 <head>
 		<title>Profil</title>
+<style>
+body {
+    background-color: #282828;
+}
+</style>
 </head>
 <body>
 <div align="center">

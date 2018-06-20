@@ -1,0 +1,25 @@
+.button {
+    background-color: black;
+    border: none;
+    color: #D80000;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #D80000;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+body {
+    background-color: #282828;
+}
+.colonne1{
+    width:200px;
+    float:left;
+}
+.colonne2{
+    width:200px;
+    float:right;
+}
