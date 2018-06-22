@@ -38,4 +38,11 @@ function rem_f($t_oeuvre, $ut, $id_oeu) {
 	$id_ut = id($ut);	
 	mysqli_query($bdd,'UPDATE listed_'.$t_oeuvre.'s SET favorit = 0 WHERE id_member ='.$id_ut[0].' AND id_'.$t_oeuvre.'='.$id_oeu);
 }
+
+function verif_l($t_oeuvre, $ut, $id_oeu) {
+	global $bdd;
+	$id_ut = id($ut);
+	$verif = mysqli_query($bdd,'SELECT * FROM listed_'.$t_oeuvre.'s WHERE id_'.$t_oeuvre.' = '.$id_oeu.' AND id_member = '.$ut);
+	return mysqli_fetch_array($verif, MYSQLI_NUM);
+}
 ?>
