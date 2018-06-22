@@ -18,13 +18,11 @@ $(function() {
 </head>
 <body>
 <?php include("view_header.php");?>
-<br>
-<div align="center">
-<a href="../controller/controller_profile_media.php?profil=list_movies&media=movie"><img src="..\ressources\icons\movie.png" width='150px' height='150px'></a>
-<br>
-<br>
-<a href="../controller/controller_profile_media.php?profil=list_movies&media=music"><img src="..\ressources\icons\music.png" width='150px' height='150px'></a>
+<p>
+<table>
+<tr><td align="center"><a href="../controller/controller_profile_media.php?profil=list_movies&media=movie"><img src="..\ressources\icons\movie.png" width='150px' height='150px'></a></td></tr>
+<tr><td align="center"><a href="../controller/controller_profile_media.php?profil=list_movies&media=music"><img src="..\ressources\icons\music.png" width='150px' height='150px'></a></td></tr>
 </form>
-</div>
+</center>
 </body>
 </html>
