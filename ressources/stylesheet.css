@@ -1,75 +1,25 @@
 .button {
     background-color: black;
+    border: none;
     color: #D80000;
     font-weight: bold;
     padding: 5px 20px;
     border-radius: 4px;
     text-align: center;
-    border: 2px solid #D80000;
-    cursor: pointer;
-}
-.button2{
-    display: inline-block;
-    background-color: black;
-    border: none;
-    color: #D80000;
-    padding: 3px 10px;
-    border-radius: 4px;
-    text-align: center;
     text-decoration: none;
+    border: 2px solid #D80000;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
 }
 body {
     background-color: #282828;
 }
 .colonne1{
-    width:30%;
+    width:200px;
     float:left;
 }
 .colonne2{
-    width:30%;
+    width:200px;
     float:right;
 }
-<<<<<<< HEAD
-.icons{
-    width: 20%;
-    height: 6%;
-}
-.search{
-    border: 6px transparent;
-    border-radius: 4px;
-    background-color: black; 
-    color: red;
-    width: 40%;
-}
-.select{
-    border-radius: 5px;
-    border: 1px solid black;
-    color: red;
-    width: 20%;
-    
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;  
-    
-    overflow: hidden;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: url(icons/arrow.png) no-repeat 90% 50%;
-    background-color: black; 
-    background-size: 10px;
-}
-
-.go{
-    background-color: #282828;
-    color: #D80000;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid black;
-    cursor: pointer;
-}
-=======
->>>>>>> 3acb543bd59dfabe8e0ff3880de0e89ac833c2d5
