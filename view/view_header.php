@@ -1,13 +1,13 @@
 <HEADER>
 <link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
 <div align="left" class="colonne1">
-    <img src="../ressources/Logo.png" width='50%' height='8%'>
+    <img src="../ressources/icons/logo.png" width='50%' height='30%'>
 </div>
 
 <div align="right" class="colonne2">
 <table>
 <tr><td>
-<?php if(isset($_SESSION)){echo'<a href="../controller/controller_member_home_page.php"';}else{echo'<a href="../controller/controller_home_page.php"';}?>><img src='..\ressources\icons\home.png' width='20px' height='20px'></a>
+<a href=<?php if(isset($_SESSION['id'])){echo'"../controller/controller_member_home_page.php"';}else{echo'"../controller/controller_home_page.php"';}?>><img src="..\ressources\icons\home.png" width="20px" height="20px"></a>
 </td>
 <td>
 <form action='../controller/controller_connection.php' method='POST'>

@@ -3,14 +3,14 @@
 <link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
 </HEAD>
 <BODY>
-<?php include("view_header.html");?>   
+<?php include("view_header.php");?>   
 <table>   
 <form action="../controller/controller_registration.php" method="POST">
-<tr><td>Username : <input type='textarea' name='id' value='' placeholder="Username"> Required between 3 and 20 characters</td></tr>
-<tr><td>Password : <input type='password' name='password' value='' placeholder="Password"> Required between 6 and 14 characters</td></tr>
-<tr><td>Re-type Password : <input type='password' name='password2' value='' placeholder="Password"></td></tr>
-<tr><td><input type="checkbox" name="privacypolicies" value="read">I have read the <a href="../view/view_privacy_policies.html">privacy policies</a></td></tr>
-<tr><td><input type='submit' name='inscription' value='Confirm'></td></tr>
+<tr><td>Username : <input type='textarea' name='id' value='' placeholder="Username" style="background-color: grey; color: white;"></td><td><font color="red" size="1">Required between 3 and 20 characters</font></td></tr>
+<tr><td>Password : <input type='password' name='password' value='' placeholder="Password" style="background-color: grey; color: white;"></td><td><font color="red" size="1">Required between 6 and 14 characters</font></td></tr>
+<tr><td>Re-type Password : <input type='password' name='password2' value='' placeholder="Password" style="background-color: grey; color: white;"></td></tr>
+<tr><td><input type="checkbox" name="privacypolicies" value="read" class="box">I have read the <a href="../view/view_privacy_policies.html">privacy policies</a></td></tr>
+<tr><td><input type='submit' name='inscription' value='Sign up' class="button"></td></tr>
 </form>
 </table>
 </BODY>

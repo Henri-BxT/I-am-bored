@@ -2,6 +2,6 @@
 <HEAD><TITLE>Connexion</TITLE>
 </HEAD>
 <body>
-<?php include("view_header.html");?>
+<?php include("view_header.php");?>
 </body>
 </html>

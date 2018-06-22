@@ -4,7 +4,7 @@
 <HEAD><TITLE>Profile</TITLE>
 </HEAD>
 <BODY>
-<?php include("view_header.html");?>
+<?php include("view_header.php");?>
 <div align="right">
     <?php if(isset($_SESSION["id"])){echo'<h4>Welcome '.$_SESSION["id2"]."</h4>";}?>
 	<?php if(isset($_SESSION["id"])){echo'<a href="../controller/controller_profil.php"><img src="..\ressources\icons\list.png" width="30px" height="30px"></a>';}?>

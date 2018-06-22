@@ -71,3 +71,14 @@ body {
     border: 1px solid black;
     cursor: pointer;
 }
+.box{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 17px; height: 17px;
+    border: 1px;
+    border-color: red;
+    background-color: black;
+    border-radius: 3px;
+}

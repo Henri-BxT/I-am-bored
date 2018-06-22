@@ -5,7 +5,7 @@
 		<title>Profil</title>
 </head>
 <body>
-<?php include("view_header.html");?>
+<?php include("view_header.php");?>
 <div align="right">
 <h4>Welcome <?php echo $_SESSION['id2']; ?></h4>
 <a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\return.png' width='30px' height='30px'></a>
