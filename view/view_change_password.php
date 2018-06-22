@@ -3,30 +3,16 @@
 <html>
 <head>
 		<title>Edit Profile</title>
-<style>
-body {
-    background-color: #282828;
-}
-</style>
 </head>
 <body>
 <?php include("view_header.php");?>
-<div align="right">
-<h4>Welcome <?php echo $_SESSION['id2']; ?></h4>
-<a href="../controller/controller_profil.php"><img src='..\ressources\icons\list.png' width='30px' height='30px'></a>
-<a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\return.png' width='30px' height='30px'></a>
-<a href="../controller/controller_logout.php"><img src='..\ressources\icons\logout.png' width='30px' height='30px'></a>
-</div>
-<br><br>
-
+<br>
 <h2 align="left">Password Change</h2>
-
-<form action="../controller/controller_change_password.php" method="POST">
-New Password <input type="password" name="password" value=""> Required between 6 and 14 characters
-<br>
-Re-type Password <input type="password" name="pass_confirmation" value="">
-<br>
-<input type="submit" name="validation" value="Reset Password"><br>
+<table>
+<form action="../controller/controller_change_password.php" method="POST"></td></tr>
+<tr><td>New Password <input type="password" name="password" value=""> <font color="red" size="1">Required between 6 and 14 characters</font></td></tr>
+<tr><td>Re-type Password <input type="password" name="pass_confirmation" value=""></td></tr>
+<tr><td><input type="submit" name="validation" value="Reset Password"></td></tr>
 </form>
 <br>
 </body>

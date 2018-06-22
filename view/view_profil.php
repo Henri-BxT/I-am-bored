@@ -3,15 +3,21 @@
 <html>
 <head>
 		<title>Profil</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    if ($.browser.msie && $.browser.version.substr(0,1)<7)
+    {
+      $('.tooltip').mouseover(function(){
+            $(this).children('span').show();
+          }).mouseout(function(){
+            $(this).children('span').hide();
+          });
+    }
+});
 </head>
 <body>
 <?php include("view_header.php");?>
-<div align="right">
-<h4>Welcome <?php echo $_SESSION['id2']; ?></h4>
-<a href="../controller/controller_member_home_page.php"><img src='..\ressources\icons\return.png' width='30px' height='30px'></a>
-<a href="../controller/controller_logout.php"><img src='..\ressources\icons\logout.png' width='30px' height='30px'></a>
-</div>
-
 <br>
 <div align="center">
 <a href="../controller/controller_profile_media.php?profil=list_movies&media=movie"><img src="..\ressources\icons\movie.png" width='150px' height='150px'></a>
