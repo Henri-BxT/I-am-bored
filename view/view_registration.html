@@ -1,22 +1,17 @@
 <HTML>
 <HEAD><TITLE>I'm Bored - Registration</TITLE>
-<style>
-body {
-    background-color: #282828;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
 </HEAD>
 <BODY>
-<div align="center">
-    <h1>I'm Bored</h1></div>
-</div>                
+<?php include("view_header.html");?>   
+<table>   
 <form action="../controller/controller_registration.php" method="POST">
-Username : <input type='textarea' name='id' value='' placeholder="Username"> Required between 3 and 20 characters<br>
-Password : <input type='password' name='password' value='' placeholder="Password"> Required between 6 and 14 characters<br>
-Re-type Password : <input type='password' name='password2' value='' placeholder="Password"><br>
-<input type="checkbox" name="privacypolicies" value="read">I have read the <a href="../view/view_privacy_policies.html">privacy policies</a><br>
-<input type='submit' name='inscription' value='Confirm'><br>
-<a href="../view/view_home_page.php">Retour</a>
+<tr><td>Username : <input type='textarea' name='id' value='' placeholder="Username"> Required between 3 and 20 characters</td></tr>
+<tr><td>Password : <input type='password' name='password' value='' placeholder="Password"> Required between 6 and 14 characters</td></tr>
+<tr><td>Re-type Password : <input type='password' name='password2' value='' placeholder="Password"></td></tr>
+<tr><td><input type="checkbox" name="privacypolicies" value="read">I have read the <a href="../view/view_privacy_policies.html">privacy policies</a></td></tr>
+<tr><td><input type='submit' name='inscription' value='Confirm'></td></tr>
 </form>
+</table>
 </BODY>
 </HTML>

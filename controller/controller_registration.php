@@ -72,7 +72,6 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
     }
 //if a field is empty
 } else {
-    echo "One of the fields is empty";
     require_once("../view/view_registration.html");
 }
 ?>

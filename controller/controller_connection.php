@@ -25,7 +25,6 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
         require_once("../view/view_sign_in.html");
     }
 } else {
-    echo "One of the fields is empty<br>";
     require_once("../view/view_sign_in.html");
 }
 ?>
