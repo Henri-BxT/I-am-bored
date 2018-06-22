@@ -1,7 +1,7 @@
 <HEADER>
 <link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
 <div align="left" class="colonne1">
-    <img src="../ressources/icons/logo.png" width='50%' height='30%'>
+    <img src="../ressources/icons/logo.png" width='80%' height='30%'>
 </div>
 
 <div align="right" class="colonne2">
@@ -27,7 +27,7 @@
             <option value="movie">Film</option> 
             <option value="music">Music</option>
     </select>    
-    <input type="text" name="search" size="30" placeholder="Title" class="search">
+    <input type="text" name="search" size="30px" placeholder="Title" class="search">
     <input type="submit" value="GO" class="go">
 </form>       
 </div>

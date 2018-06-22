@@ -12,6 +12,17 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+.button2{
+    display: inline-block;
+    background-color: black;
+    border: none;
+    color: #D80000;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
 body {
     background-color: #282828;
     color: white;
@@ -55,7 +66,6 @@ body {
     background-color: black; 
     background-size: 10px;
 }
-
 .go{
     background-color: #282828;
     color: #D80000;
