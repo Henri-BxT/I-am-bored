@@ -36,7 +36,10 @@ if(!isset($_SESSION["id"])){
 }else{
     echo'<td><a href="../controller/controller_profil.php" class="tooltip"><img src="..\ressources\icons\list.png" width="30px" height="30px"><span>Lists</span></a></td>
         <td><a href="../controller/controller_change_password.php" class="tooltip"><img src="..\ressources\icons\settings.png" width="30px" height="30px"><span>Options</span></a></td>    
-        <td><a href="../controller/controller_logout.php" class="tooltip"><img src="..\ressources\icons\logout.png" width="30px" height="30px"><s1pan>Logout</span></a></td></table>';
+        <td width="55%" align="center">Welcome '.$_SESSION['id2'].'</td>
+        <td><form action="../controller/controller_logout.php" method="POST">
+        <input type="submit" value="Log out"class="button2">
+        </form></td></table>';
 }
 ?>
 <form action="../controller/controller_website_search.php" method="GET">
