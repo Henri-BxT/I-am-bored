@@ -1,7 +1,6 @@
 <?php
 function add_grade_movie($media,$grade,$id_works){
 	
-	session_start();
 	$host = "localhost";
 	$user = "root";
 	$bdd = "im_bored";
