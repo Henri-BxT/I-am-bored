@@ -69,7 +69,7 @@ if(!empty($data)){
             }
         }else{
             echo "<br><a href='controller_manage_list.php?list=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'l' src='../ressources/icons/X.png' width='50px' height='50px'></a>";
-			echo "<br><a href='controller_manage_list.php?favorit=remove&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
+			echo "<br><a href='controller_manage_list.php?favorit=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
         }
     }
 }else{
