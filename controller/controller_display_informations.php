@@ -4,7 +4,9 @@ if(!isset($_SESSION['id'])){
 }
 require_once("../view/view_display_informations.html");
 
-$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
+require_once("../db_connect.php");
+$db_connect = db_connect();
+
 require("../model/model_display_informations.php");
 if($_REQUEST['media'] === "movie"){
     $select = "t1.image, t1.synopsis";

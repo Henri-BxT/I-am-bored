@@ -1,24 +1,26 @@
 <!DOCTYPE HTML>
 
 <HTML>
-<HEAD><TITLE>Profile</TITLE>
-<?php include("view_header.php");?>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    if ($.browser.msie && $.browser.version.substr(0,1)<7)
-    {
-      $('.tooltip').mouseover(function(){
-            $(this).children('span').show();
-          }).mouseout(function(){
-            $(this).children('span').hide();
-          });
-    }
-});
-</script>
+
+<HEAD>
+  <TITLE>Profile</TITLE>
+  <?php include("view_header.php");?>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
+        $('.tooltip').mouseover(function () {
+          $(this).children('span').show();
+        }).mouseout(function () {
+          $(this).children('span').hide();
+        });
+      }
+    });
+  </script>
 </HEAD>
+
 <BODY>
-<?php
+  <?php
 require_once("../model/model_profile_search.php");
 $liste = mysqli_fetch_all(type_movie_search($_REQUEST['media']), MYSQLI_ASSOC);
 echo "<table align='left'><form action='../controller/controller_profile_media.php' method='POST''>";
@@ -38,6 +40,6 @@ echo "<tr><td><input type='submit' name='list_movies' value='Search'>";
 echo "</form></table>";
 
 ?>
-<BR>
-<center>
-    <TABLE border="1" align="right">
+    <BR>
+    <center>
+      <TABLE border="1" align="right">

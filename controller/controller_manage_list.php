@@ -10,7 +10,6 @@ if(isset($_REQUEST['list'])){
         require("controller_display_informations.php");
     }
 } else if(isset($_REQUEST['favorit'])){
-	var_dump($_GET);
 	if(verif_l($_GET["media"], $_SESSION["id"], $_GET["id"]) == false) {
 		add_l($_GET["media"], $_SESSION["id"], $_GET["id"]);
 	}

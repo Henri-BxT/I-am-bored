@@ -13,18 +13,18 @@ $(function() {
 });
 </script>
 <link rel="stylesheet" type="text/css" href="../ressources/stylesheet.css"/>
-<div align="left" class="colonne1">
-    <img src="../ressources/icons/logo.png" width="80%" height="30%">
-</div>
-
-<div align="right" class="colonne2">
-<table>
-<tr><td>
-<a class="tooltip" id="link1" href=<?php if(isset($_SESSION["id"])){echo"../controller/controller_member_home_page.php";}else{echo"../controller/controller_home_page.php";}?>><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
-</td>
 <?php 
 if(!isset($_SESSION["id"])){
-    echo'<td>
+    echo'<div align="left" class="colonne1">
+        <a href="../controller/controller_home_page.php"><img src="../ressources/icons/logo.png" width="80%" height="30%"></a>
+        </div>
+
+        <div align="right" class="colonne2">
+        <table>
+
+        <tr><td>
+        <a class="tooltip" id="link1" href="../controller/controller_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
+        </td><td>
         <form action="../controller/controller_connection.php" method="POST">
             <input type="submit" value="Sign in"class="button2">
         </form>
@@ -34,7 +34,17 @@ if(!isset($_SESSION["id"])){
         </form></td></tr></table>';
 
 }else{
-    echo'<td><a href="../controller/controller_profil.php" class="tooltip" id="link2"><img src="..\ressources\icons\list.png" width="30px" height="30px"><span>Lists</span></a></td>
+    echo'<div align="left" class="colonne1">
+        <a href="../controller/controller_member_home_page.php"><img src="../ressources/icons/logo.png" width="80%" height="30%"></a>
+        </div>
+
+        <div align="right" class="colonne2">
+        <table>
+
+        <tr><td>
+        <a class="tooltip" id="link1" href="../controller/controller_member_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
+        </td><td>
+        <a href="../controller/controller_profil.php" class="tooltip" id="link2"><img src="..\ressources\icons\list.png" width="30px" height="30px"><span>Lists</span></a></td>
         <td><a href="../controller/controller_change_password.php" class="tooltip" id="link3"><img src="..\ressources\icons\settings.png" width="30px" height="30px"><span>Options</span></a></td>    
         <td width="55%" align="center" class="text">Welcome '.$_SESSION['id2'].'</td>
         <td><form action="../controller/controller_logout.php" method="POST">
@@ -52,5 +62,4 @@ if(!isset($_SESSION["id"])){
 </form>
 </div>
 </HEADER>
-
 <center>

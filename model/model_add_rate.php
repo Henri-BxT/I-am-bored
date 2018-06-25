@@ -6,7 +6,9 @@ function add_grade_movie($media,$grade,$id_works){
 	$bdd = "im_bored";
 	$password = "";
 
-	$db_connexion = mysqli_connect($host, $user, $password, $bdd) or die ("Error can't connect to the database");
+	require_once("../db_connect.php");
+	$db_connect = db_connect();
+	
 	$REQ = mysqli_query($db_connexion, 'SELECT id_member FROM members WHERE login like "'.$_SESSION["id"].'"');
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 	mysqli_free_result($REQ);

@@ -1,7 +1,9 @@
 <?php
 function advanced_search($media){
 	
-	$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
+    require_once("../db_connect.php");
+    $db_connect = db_connect();
+
 	$REQ = mysqli_query($db_connect, $SQL);
 	
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);

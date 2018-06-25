@@ -27,7 +27,8 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             require_once("../view/view_registration.html");
             exit();
         } else {
-            $db_connect = mysqli_connect("localhost", "root", "", "im_bored");
+            require_once("../db_connect.php");
+            $db_connect = db_connect();
             //exit if fail to connect DB
             if (mysqli_connect_errno()) {
                 printf("Échec de la connexion : %s\n", mysqli_connect_error());

@@ -2,7 +2,8 @@
 
 function type_movie_search($media){
 	
-	$db_connect = mysqli_connect("localhost", "root", "", "im_bored") or die ("Error can't connect to the database");
+    require_once("../db_connect.php");
+    $db_connect = db_connect();
 	
 	$login = $_SESSION['id'];
 	
