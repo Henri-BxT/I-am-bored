@@ -18,6 +18,9 @@ header{
     margin: 4px 2px;
     cursor: pointer;
 }
+.edit {
+    border: 3px solid black;
+}
 .button2{
     display: inline-block;
     background-color: black;
@@ -90,9 +93,27 @@ body {
     background: url(icons/arrow.png) no-repeat 90% 50%;
     background-color: black; 
     background-size: 10px;
+}.type{
+    border-radius: 5px;
+    border: 1px solid black;
+    color: red;
+    width: 40%;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;  
+    
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(icons/arrow.png) no-repeat 90% 50%;
+    background-color: black; 
+    background-size: 10px;
 }
 .go{
-    background-color: #282828;
+    background-color: black;
     color: #D80000;
     border-radius: 5px;
     text-align: center;
@@ -147,16 +168,21 @@ body {
 	margin-right: 5px;
 	padding: 0px;
 	padding-right: 8px;
-	bottom: -25px;
+	bottom: -50px;
 	left: 24px;
 }
 #link3 span
 {
 	margin-right: -25px;
 	padding: 0px;
-	padding-right: 30px;
-	bottom: -25px;
+	padding-right: 28px;
+	bottom: -50px;
 	left: 12px;
+}
+a
+{
+	text-decoration: none;
+    color: red;
 }
 .tooltip span
 {

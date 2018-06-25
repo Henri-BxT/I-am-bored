@@ -20,7 +20,7 @@ $(function() {
 <div align="right" class="colonne2">
 <table>
 <tr><td>
-<a class="tooltip" id="link1" href=<?php if(isset($_SESSION["id"])){echo"../controller/controller_member_home_page.php";}else{echo"../controller/controller_home_page.php";}?>><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
+<a class="tooltip" id="link1" href=<?php if(isset($_SESSION["id"])){echo"../controller/controller_member_home_page.php";}else{echo"../controller/controller_home_page.php";}?>><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home</span></a>
 </td>
 <?php 
 if(!isset($_SESSION["id"])){
@@ -44,7 +44,7 @@ if(!isset($_SESSION["id"])){
 ?>
 <form action="../controller/controller_website_search.php" method="GET">
     <select name="media" class="select">
-            <option value="movie">Film</option> 
+            <option value="movie">Film</option>
             <option value="music">Music</option>
     </select>    
     <input type="text" name="search" size="30px" placeholder="Title" class="search">

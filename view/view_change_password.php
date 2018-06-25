@@ -6,8 +6,7 @@
 		<title>Edit Profile</title>
 </head>
 <body>
-<br>
-<table>
+<table class="edit">
 <tr><td><h2>Password Change</h2></td></tr>
 <form action="../controller/controller_change_password.php" method="POST"></td></tr>
 <tr><td>New Password <input type="password" name="password" value="" style="background-color: grey; color: white;"> <font color="red" size="1">Required between 6 and 14 characters</font></td></tr>
