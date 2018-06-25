@@ -51,7 +51,7 @@ if(!empty($_REQUEST['search'])){
 	$select = "t1.image,t1.title, t1.id_".$_REQUEST['media'].", (SELECT AVG(grade) FROM listed_".$_GET['media']."s WHERE id_".$_GET['media']." = t1.id_".$_GET['media'].")";
 	$table = strtoupper($_REQUEST['media'].'s');
 	$column = "id_".$_REQUEST['media'];
-
+	
 	$liste = mysqli_fetch_all(website_list($db_connect,$select,$table,$column), MYSQLI_NUM);
 	
 	if(!empty($liste)){

@@ -19,6 +19,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	}
 	$type = $_REQUEST['type'];
 	
+	echo $type;
 	require_once("../model/model_profile_search.php");
 	
 	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
@@ -47,7 +48,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 		}
 		echo "</center></table>";
 	}else{
-		print("Not found");
+		echo"<center>Not found</center>";
 	}
 }else{
 	require("../model/model_profile_list.php");
