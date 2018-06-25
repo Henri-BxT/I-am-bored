@@ -23,7 +23,7 @@ if(!isset($_SESSION["id"])){
         <table>
 
         <tr><td>
-        <a class="tooltip" id="link1" href="../controller/controller_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
+        <a class="tooltip" id="link1" href="../controller/controller_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home</span></a>
         </td><td>
         <form action="../controller/controller_connection.php" method="POST">
             <input type="submit" value="Sign in"class="button2">
@@ -42,7 +42,7 @@ if(!isset($_SESSION["id"])){
         <table>
 
         <tr><td>
-        <a class="tooltip" id="link1" href="../controller/controller_member_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home Page</span></a>
+        <a class="tooltip" id="link1" href="../controller/controller_member_home_page.php"><img src="..\ressources\icons\home.png" width="30px" height="30px"><span>Home</span></a>
         </td><td>
         <a href="../controller/controller_profil.php" class="tooltip" id="link2"><img src="..\ressources\icons\list.png" width="30px" height="30px"><span>Lists</span></a></td>
         <td><a href="../controller/controller_change_password.php" class="tooltip" id="link3"><img src="..\ressources\icons\settings.png" width="30px" height="30px"><span>Options</span></a></td>    
