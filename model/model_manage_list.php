@@ -42,7 +42,8 @@ function rem_f($t_oeuvre, $ut, $id_oeu) {
 function verif_l($t_oeuvre, $ut, $id_oeu) {
 	global $bdd;
 	$id_ut = id($ut);
-	$verif = mysqli_query($bdd,'SELECT * FROM listed_'.$t_oeuvre.'s WHERE id_'.$t_oeuvre.' = '.$id_oeu.' AND id_member = '.$ut);
-	return mysqli_fetch_array($verif, MYSQLI_NUM);
+	$verif = mysqli_query($bdd,'SELECT * FROM listed_'.$t_oeuvre.'s WHERE id_'.$t_oeuvre.' = '.$id_oeu.' AND id_member = '.$id_ut[0]);
+	$verif = mysqli_fetch_array($verif, MYSQLI_NUM);
+	return $verif;
 }
 ?>
