@@ -47,7 +47,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 		}
 		echo "</center></table>";
 	}else{
-		print("Not found");
+		echo"<center>Not found</center>";
 	}
 }else{
 	require("../model/model_profile_list.php");

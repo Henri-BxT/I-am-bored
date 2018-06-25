@@ -10,10 +10,11 @@ if(isset($_REQUEST['list'])){
         require("controller_display_informations.php");
     }
 } else if(isset($_REQUEST['favorit'])){
-	if(verif_l($_GET["media"], $_SESSION["id"], $_GET["id"]) == false) {
-		add_l($_GET["media"], $_SESSION["id"], $_GET["id"]);
-	}
     if($_REQUEST['favorit'] === "add"){
+		$verif = verif_l($_GET["media"], $_SESSION["id"], $_GET["id"]);
+		if(!isset($verif[0])) {	
+			add_l($_GET["media"], $_SESSION["id"], $_GET["id"]);
+		}
         add_f($_REQUEST['media'], $_SESSION['id'], $_REQUEST['id']);
         header("Location: controller_display_informations.php?media=".$_GET["media"]."&id=".$_GET['id']."");
     }else if($_REQUEST['favorit'] === "remove"){

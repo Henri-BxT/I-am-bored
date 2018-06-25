@@ -54,7 +54,7 @@ if(!isset($_SESSION["id"])){
 ?>
 <form action="../controller/controller_website_search.php" method="GET">
     <select name="media" class="select">
-            <option value="movie">Film</option> 
+            <option value="movie">Film</option>
             <option value="music">Music</option>
     </select>    
     <input type="text" name="search" size="30px" placeholder="Title" class="search">

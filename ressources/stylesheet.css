@@ -18,6 +18,10 @@ header{
     margin: 4px 2px;
     cursor: pointer;
 }
+.edit 
+{
+    border: 2px solid black;
+}
 .button2{
     display: inline-block;
     background-color: black;
@@ -90,9 +94,27 @@ body {
     background: url(icons/arrow.png) no-repeat 90% 50%;
     background-color: black; 
     background-size: 10px;
+}.type{
+    border-radius: 5px;
+    border: 1px solid black;
+    color: red;
+    width: 40%;
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;  
+    
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(icons/arrow.png) no-repeat 90% 50%;
+    background-color: black; 
+    background-size: 10px;
 }
 .go{
-    background-color: #282828;
+    background-color: black;
     color: #D80000;
     border-radius: 5px;
     text-align: center;
@@ -147,16 +169,21 @@ body {
 	margin-right: 5px;
 	padding: 0px;
 	padding-right: 8px;
-	bottom: -25px;
+	bottom: -50px;
 	left: 24px;
 }
 #link3 span
 {
 	margin-right: -25px;
 	padding: 0px;
-	padding-right: 30px;
-	bottom: -25px;
+	padding-right: 28px;
+	bottom: -50px;
 	left: 12px;
+}
+a
+{
+	text-decoration: none;
+    color: red;
 }
 .tooltip span
 {
@@ -200,3 +227,53 @@ body {
 .table_profil{
     border-bottom: 1px solid black;
  }
+.btn {
+  border: 3px solid #1a1a1a;
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  transition: background 600ms ease, color 600ms ease;
+}
+
+input[type="radio"].toggle {
+  display: none;
+}
+input[type="radio"].toggle + label {
+  cursor: pointer;
+  min-width: 60px;
+}
+input[type="radio"].toggle + label:hover {
+  background: none;
+  color: #1a1a1a;
+}
+input[type="radio"].toggle + label:after {
+  background: #1a1a1a;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+  width: 100%;
+  z-index: -1;
+}
+input[type="radio"].toggle.toggle-left + label {
+  border-right: 0;
+}
+input[type="radio"].toggle.toggle-left + label:after {
+  left: 100%;
+}
+input[type="radio"].toggle.toggle-right + label {
+  margin-left: -5px;
+}
+input[type="radio"].toggle.toggle-right + label:after {
+  left: -100%;
+}
+input[type="radio"].toggle:checked + label {
+  cursor: default;
+  color: red;
+  transition: color 200ms;
+}
+input[type="radio"].toggle:checked + label:after {
+  left: 0;
+}
