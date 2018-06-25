@@ -1,3 +1,9 @@
+header{
+    position: fixed;
+    width:100%;
+    top:0;
+    background: #282828;
+}
 .button {
     background-color: black;
     border: none;
@@ -43,6 +49,8 @@
 body {
     background-color: #282828;
     color: white;
+    margin: 10% 0 0;
+    margin-top: 160px;
 }
 .colonne1{
     width:200px;
@@ -189,3 +197,6 @@ body {
   border-top-color: #ccc;
   bottom: -8px;
 }
+.table_profil{
+    border-bottom: 1px solid black;
+ }

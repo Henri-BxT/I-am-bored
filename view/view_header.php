@@ -51,9 +51,6 @@ if(!isset($_SESSION["id"])){
     <input type="submit" value="GO" class="go">
 </form>
 </div>
-<br>
-<p>
-<p>
-<br>
 </HEADER>
+
 <center>

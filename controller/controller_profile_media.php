@@ -24,7 +24,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	$liste = mysqli_fetch_all(movie_profil_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
 	
 	if(!empty($liste)){
-		echo "<center><table border='1'><tr>";
+		echo "<center><table><tr class='table_profil'>";
 		foreach($liste as $array){
 			if($array[2]===null){
 				$array[2] = "Pas de note";
@@ -59,7 +59,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	$liste = mysqli_fetch_all(profile_list($db_connect,$select,$table,$column,$id), MYSQLI_NUM);
 		
 	if(!empty($liste)){
-		echo "<center><table border='1'><tr>";
+		echo "<center><table><tr class='table_profil'>";
 		foreach($liste as $array){
 			echo "<td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'><img src=".$array[1]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[0]."&media=".$_REQUEST['media']."'>".$array[2]."</a></td><td>";
 			for($i=1;$i<6;$i++){

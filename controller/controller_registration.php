@@ -40,7 +40,7 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             for($i=0;$i<strlen($id);$i++){
                 if(ord($id[$i])<65 or ord($id[$i])>90){
                     if(ord($id[$i])<47 or ord($id[$i])>57){
-                        if(ord($id[$i]) !== 39){
+                        if(ord($id[$i]) !== 39 or ord($id[$i]) !== 45){
                             echo "Unauthorized special caracter detected<br>";
                             require_once("../view/view_registration.html");
                             exit();

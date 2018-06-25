@@ -2,6 +2,7 @@
 
 <HTML>
 <HEAD><TITLE>Profile</TITLE>
+<?php include("view_header.php");?>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -17,8 +18,7 @@ $(function() {
 </script>
 </HEAD>
 <BODY>
-<?php 
-include("view_header.php");
+<?php
 require_once("../model/model_profile_search.php");
 $liste = mysqli_fetch_all(type_movie_search($_REQUEST['media']), MYSQLI_ASSOC);
 echo "<table align='left'><form action='../controller/controller_profile_media.php' method='POST''>";

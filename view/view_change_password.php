@@ -2,10 +2,10 @@
 
 <html>
 <head>
+<?php include("view_header.php");?>
 		<title>Edit Profile</title>
 </head>
 <body>
-<?php include("view_header.php");?>
 <br>
 <table>
 <tr><td><h2>Password Change</h2></td></tr>
