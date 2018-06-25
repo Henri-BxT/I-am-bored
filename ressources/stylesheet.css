@@ -24,6 +24,11 @@
     cursor: pointer;
 	margin-top: 25px;
 }
+.text{
+    color: #D80000;
+	left: 40px;
+	padding-left: 14px;
+}
 .button3{
     display: inline-block;
     background-color: black;
