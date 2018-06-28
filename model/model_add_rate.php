@@ -7,7 +7,7 @@ function add_grade_movie($media,$grade,$id_works){
 	$password = "";
 
 	require_once("../db_connect.php");
-	$db_connect = db_connect();
+	$db_connexion = db_connect();
 	
 	$REQ = mysqli_query($db_connexion, 'SELECT id_member FROM members WHERE login like "'.$_SESSION["id"].'"');
 	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);

@@ -31,10 +31,9 @@ function quick_search($db_connect, $search, $asc_desc, $type, $name_grade, $medi
 		$REQ = mysqli_query($db_connect, $SQL);
 		$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 	}
+
 	$SQL = 'SELECT DISTINCT t1.image, t1.title, t1.id_'.$media.', (SELECT AVG(grade) FROM listed_'.$media.'s WHERE id_'.$media.' = t1.id_'.$media.') 
 			FROM '.$media.'s AS t1 
-			INNER JOIN '.$media.'_types AS t2 ON t1.id_'.$media.' = t2.id_'.$media.' 
-			INNER JOIN types AS t3 ON t2.id_type = t3.id_type 
 			WHERE t1.title LIKE "%'.$search.'%" 
 			ORDER BY t1.title ASC;';
 	

@@ -20,7 +20,8 @@
 </HEAD>
 
 <BODY>
-  <?php
+<div class="side_panel">
+<?php
 require_once("../model/model_profile_search.php");
 $liste = mysqli_fetch_all(type_movie_search($_REQUEST['media']), MYSQLI_ASSOC);
 echo "<table align='left'><form action='../controller/controller_profile_media.php' method='POST''>";
@@ -36,8 +37,8 @@ echo "</select>";
 echo "<tr><td><input type='hidden' name='media' value='".$_REQUEST['media']."']>";
 echo "<tr><td><input type='submit' name='list_movies' value='Search' class='go'>";
 echo "</form></table>";
-
 ?>
+</div>
     <BR>
     <center>
       <TABLE border="1" align="right">

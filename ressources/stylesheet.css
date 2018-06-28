@@ -4,6 +4,10 @@ header{
     top:0;
     background: #282828;
 }
+.side_panel{
+    position: fixed;
+    left:0;
+}
 .button {
     background-color: black;
     border: none;

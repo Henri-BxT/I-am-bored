@@ -16,7 +16,7 @@ if($_REQUEST['media'] === "movie"){
 $data = mysqli_fetch_all(display_info($db_connect,$_REQUEST['media'],$_REQUEST['id'],$select), MYSQLI_NUM);
 if(!empty($data)){
     foreach($data as $infos){
-        echo "<img src=".$infos[2]." width='200px' height='200px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ";
+        echo "<img src=".$infos[2]." width='200px' height='300px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ";
 		if(isset($_REQUEST['grade'])) {
 			$grade = $_REQUEST['grade'];
 		}else {
