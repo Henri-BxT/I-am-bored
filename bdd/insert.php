@@ -54,7 +54,7 @@ NULL, "Live Free or Die Hard", "2007/07/04", "../ressources/movies/live_free_or_
 NULL, "Around the World in 80 Days", "2004/08/11", "../ressources/movies/around_the_world_in_80_days.jpg", "A bet pits a British inventor, a Chinese thief, and a French artist on a worldwide adventure that they can circle the globe in 80 days.",
 NULL, "Kingdom of Heaven", "2005/05/04", "../ressources/movies/kingdom_of_heaven.jpg", "Balian of Ibelin travels to Jerusalem during the crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
 NULL, "Mr. and Mrs. Smith", "2005/07/27", "../ressources/movies/mr_and_mrs_smith.jpg", "A bored married couple is surprised to learn that they are both assassins hired by competing agencies to kill each other.",
-NULL, "The Aviator", "2005/01/26", "../ressources/movies/aviator.jpg", "A biopic depicting the early years of legendary director and aviator Howard Hughes' career, from the late 1920s to the mid-1940s.",
+NULL, "The Aviator", "2005/01/26", "../ressources/movies/aviator.jpg", "A biopic depicting the early years of legendary actor and aviator Howard Hughes' career, from the late 1920s to the mid-1940s.",
 NULL, "Ali", "2002/02/27", "../ressources/movies/ali.jpg", "A biography of sports legend, Muhammad Ali, from his early days to his days in the ring",
 NULL, "The Lord of the Rings: The_Fellowship of the Ring", "2001/12/19", "../ressources/movies/TLOTR_the_fellowship_of_the_ring.jpg", "In a small village in the Shire a young Hobbit named Frodo has been entrusted with an ancient Ring. Now he must embark on an Epic quest to the Cracks of Doom in order to destroy it.",
 NULL, "I Robot", "2004/07/28", "../ressources/movies/I_robot.jpg", "In the year 2035 a techno-phobic cop investigates a crime that may have been perpetrated by a robot, which leads to a larger threat to humanity.",
@@ -262,18 +262,23 @@ $date = 2;
 $syno = 4;
 $j = 2;
 $liste = array();
-
+//1261
+//11
 while($titre !== 1261){
         $php[$titre] = str_replace(" ","_",$php[$titre]);
         $php[$titre] = str_replace(":","%3A",$php[$titre]);
         array_push($liste, find_by_title($php[$titre]));
         $titre = $titre + 5;        
 }
+
 for($i=0;$i<count($liste);$i++){
-        echo "INSERT INTO movies VALUES(NULL,'".$liste[$i]['title']."',".$php[$date].",'".$liste[$i]['image']."','".$liste[$i]['plot']."');<br>";
+        $liste[$i]['plot'] = str_replace('"',"",$liste[$i]['plot']);
+        $liste[$i]['title'] = str_replace("'","",$liste[$i]['title']);
+        insert_movie($db_connect, $liste[$i]['title'], $php[$date], $liste[$i]['image'], $liste[$i]['plot']);
+
+        //INSERT ACTORS
         foreach($liste[$i]['actors'] as $actor){
                 $actor_with_bs_name = explode(" ",$actor);
-                if(isset($actor_with_bs_name[1])){
                         if(count($actor_with_bs_name)>2){
                                 while(isset($actor_with_bs_name[$j])){
                                         $actor_with_bs_name[1] .= "_".$actor_with_bs_name[$j];
@@ -281,28 +286,56 @@ for($i=0;$i<count($liste);$i++){
                                 }
                         }
                         $firstname = $actor_with_bs_name[0];
-                        $lastname = $actor_with_bs_name[1];
                         $firstname = str_replace("'"," ",$firstname);
-                        $lastname = str_replace("'"," ",$lastname);
-                        $tmp = mysqli_fetch_array(verif_actor($db_connect,$lastname,$firstname));
+                        if(isset($actor_with_bs_name[1])){
+                                $lastname = $actor_with_bs_name[1];
+                                $lastname = str_replace("'"," ",$lastname);
+                        }else{
+                                $lastname = "";
+                        }
+                        $tmp = mysqli_fetch_array(verif_actor($db_connect,$lastname,$firstname), MYSQLI_NUM);
                         if($tmp === NULL){
                                 insert_actor($db_connect,$lastname,$firstname);
-                                echo "INSERT INTO actors VALUES(NULL, '".$lastname."', '".$firstname."');<br>";             
+                        }
+                $id_movie = mysqli_fetch_array(search_id_movie($db_connect,$liste[$i]['title']), MYSQLI_NUM);
+                $id_actor = mysqli_fetch_array(search_id_actor($db_connect,$lastname,$firstname), MYSQLI_NUM);
+                insert_played($db_connect,$id_actor[0],$id_movie[0]);
+        }
+
+        //INSERT DIRECTORS
+        $director = $liste[$i]['director'];      
+        $director_with_bs_name = explode(" ",$director);
+                if(count($director_with_bs_name)>2){
+                        while(isset($director_with_bs_name[$j])){
+                                $director_with_bs_name[1] .= "_".$director_with_bs_name[$j];
+                                $j++;
                         }
                 }
-        }
-        echo "<br>";
-        // STILL MISSING THE INSERT FOR PLAYED_MOVIES
-        // NOT SURE IT WORKS FOR NOW
-        foreach($liste[$i]['genre'] as $type){
-                $id_type = search_id_type($db_connect,$type);
-                $id_movie = search_id_movie($db_connect,$liste[$i]['title']);
+                $firstname = $director_with_bs_name[0];
+                $firstname = str_replace("'"," ",$firstname);
+                if(isset($director_with_bs_name[1])){
+                        $lastname = $director_with_bs_name[1];
+                        $lastname = str_replace("'"," ",$lastname);
+                }else{
+                        $lastname = "";
+                }
+                $tmp = mysqli_fetch_array(verif_director($db_connect,$lastname,$firstname), MYSQLI_NUM);
+                if($tmp === NULL){
+                        insert_director($db_connect,$lastname,$firstname);
+                }
+        $id_movie = mysqli_fetch_array(search_id_movie($db_connect,$liste[$i]['title']), MYSQLI_NUM);
+        $id_director = mysqli_fetch_array(search_id_director($db_connect,$lastname,$firstname), MYSQLI_NUM);
+        insert_directed($db_connect,$id_director[0],$id_movie[0]);
+
+        //INSERT TYPES
+        foreach($liste[$i]['type'] as $type){
+                $id_type = mysqli_fetch_array(search_id_type($db_connect,$type), MYSQLI_NUM);
                 if(!empty($id_movie) or !empty($id_type)){
-                        insert_type($db_connect,$id_movie,$_id_type);
-                        echo "INSERT INTO movie_types VALUES(NULL, '".$id_movie."', '".$id_type."');";
+                        insert_type($db_connect,$id_movie[0],$id_type[0]);
                 }else{
                         echo "Error on when trying to find the ID of the type !";
                 }
         }
+        echo "<br>";
 }
 ?>
