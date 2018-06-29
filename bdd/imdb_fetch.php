@@ -61,7 +61,4 @@
         
         return $matches;
     }
-
-$movies = find_by_title("alien");
-var_dump($movies);
 ?>
