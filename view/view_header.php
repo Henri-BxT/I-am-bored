@@ -57,7 +57,7 @@ if(!isset($_SESSION["id"])){
             <option value="movie">Film</option>
             <option value="music">Music</option>
     </select>    
-    <input type="text" name="search" size="30px" placeholder="Title" class="search">
+    <input type="text" name="search" size="30px" placeholder="Title" class="search"<?php if(isset($_GET['search'])){echo"value='".$_GET['search']."'";}?>>
     <input type="submit" value="GO" class="go">
 </form>
 </div>

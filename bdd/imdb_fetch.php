@@ -51,7 +51,7 @@
     }
 
     function find_by_title($title){
-        $requestURL = "http://www.omdbapi.com/?apikey=33348164&t=".$title."&plot=full";		
+        $requestURL = "http://www.omdbapi.com/?apikey=33348164&t=".$title."&plot=full";
         $json = fetchJSON($requestURL);
         
         //$results = $json->data->results;

@@ -60,7 +60,7 @@ if(!empty($_REQUEST['search'])){
         	foreach($liste as $array){
 				if($array[3]===null){
 					$array[3] = "Pas de note";
-				}	
+				}
 				echo "<td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td>";
 				for($i=0;$i<5;$i++){
 					if($i<=$array[3]){
