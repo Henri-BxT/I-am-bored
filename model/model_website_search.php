@@ -1,18 +1,24 @@
 <?php
-function advanced_search($media){
-	
-    require_once("../db_connect.php");
-    $db_connect = db_connect();
+function advanced_search($db_connect, $search, $asc_desc, $type, $name_grade, $media){
 
-	$REQ = mysqli_query($db_connect, $SQL);
-	
-	$tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
-	$SQL = 'SELECT DISTINCT t4.name
-		FROM listed_'.$media.'s AS t1
-		INNER JOIN '.$media.'s AS t2 ON t1.id_'.$media.' = t2.id_'.$media.'
-		INNER JOIN '.$media.'_types AS t3 ON t3.id_'.$media.' = t2.id_'.$media.'
-		INNER JOIN types AS t4 ON t3.id_type = t4.id_type
-		ORDER BY t4.name ASC';
+	if($name_grade == "grade")
+	{
+		$name_grade = '(SELECT AVG(grade) FROM listed_'.$media.'s WHERE id_'.$media.' = '.$media.'s.id_'.$media.')';
+	}
+	$req = "".$name_grade." ".$asc_desc;
+	if(empty($type)){
+		$types_name = "";
+	}else{
+		$types_name = "AND Types.name = ";
+	}
+
+	$SQL = 'SELECT DISTINCT '.$media.'s.image, '.$media.'s.title,(SELECT AVG(grade) FROM listed_'.$media.'s WHERE id_'.$media.' = '.$media.'s.id_'.$media.'), '.$media.'s.id_'.$media.'
+	FROM '.$media.'s 
+	JOIN '.$media.'_types ON '.$media.'_types.id_'.$media.' = '.$media.'s.id_'.$media.'
+	JOIN types ON '.$media.'_types.id_type = types.id_type
+	WHERE '.$media.'s.title LIKE "%'.$search.'%"
+	'.$types_name.' "'.$type.'"
+	ORDER BY '.$req.' ';
 	
 	$REQ = mysqli_query($db_connect, $SQL);
 	return $REQ;

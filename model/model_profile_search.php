@@ -25,6 +25,21 @@ function type_movie_search($media){
 	return $REQ;
 }
 
+function type_movie_advanced_search($media){
+	
+    require_once("../db_connect.php");
+    $db_connect = db_connect();
+	
+	$SQL = 'SELECT DISTINCT Types.name
+	FROM '.$media.'s
+	JOIN '.$media.'_types ON '.$media.'_types.id_'.$media.' = '.$media.'s.id_'.$media.'
+	JOIN types ON '.$media.'_types.id_type = types.id_type
+	ORDER BY Types.name ASC';
+	
+	$REQ = mysqli_query($db_connect, $SQL);
+	return $REQ;
+}
+
 function movie_profil_search($db_connect, $search, $asc_desc, $type, $name_grade, $media){
 
 	$req = "listed_".$media."s.favorit DESC, ".$name_grade." ".$asc_desc;
