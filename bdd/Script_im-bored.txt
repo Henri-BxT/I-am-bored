@@ -309,24 +309,6 @@ INSERT INTO `members` VALUES (NULL, 'SBIBO', “§Ù3£¬RÑß”);
 
 
 ## 
-## Contenu de la table `musics`
-## 
-
-INSERT INTO `musics` VALUES (1, "Bleed It Out", '2007/08/14', "../ressources/musics/Bleed_it_out.jpg");
-INSERT INTO `musics` VALUES (2, "One More Light", '2017/05/19', "../ressources/musics/One_more_light.jpg");
-INSERT INTO `musics` VALUES (3, "New Divide", '2009/05/18', "../ressources/musics/New_divide.jpg");
-INSERT INTO `musics` VALUES (4, "Power", '2010/05/28',  "../ressources/musics/Power.jpg");
-INSERT INTO `musics` VALUES (5, "Redbone", '2016/11/17',  "../ressources/musics/Awaken_my_love.png");
-
-## 
-## Contenu de la table `groups`
-## 
-
-INSERT INTO `groups` VALUES (1,'Linkin Park');
-INSERT INTO `groups` VALUES (2,'Kanye West');
-INSERT INTO `groups` VALUES (3,'Childish Bambino');
-
-## 
 ## Contenu de la table `types`
 ## 
 
@@ -434,13 +416,36 @@ INSERT INTO `types` VALUES (NULL,'Fiction');
 INSERT INTO `types` VALUES (NULL,'Black_comedy');
 INSERT INTO `types` VALUES (NULL,'R&B');
 
+
+## 
+## Contenu de la table `musics`
+## 
+
+INSERT INTO `musics` VALUES (1, "Bleed It Out", '2007/08/14', "../ressources/musics/Bleed_it_out.jpg");
+INSERT INTO `musics` VALUES (2, "One More Light", '2017/05/19', "../ressources/musics/One_more_light.jpg");
+INSERT INTO `musics` VALUES (3, "New Divide", '2009/05/18', "../ressources/musics/New_divide.jpg");
+INSERT INTO `musics` VALUES (4, "Power", '2010/05/28',  "../ressources/musics/Power.jpg");
+INSERT INTO `musics` VALUES (5, "Redbone", '2016/11/17',  "../ressources/musics/Awaken_my_love.png");
+
+## 
+## Contenu de la table `groups`
+## 
+
+INSERT INTO `groups` VALUES (1,'Linkin Park');
+INSERT INTO `groups` VALUES (2,'Kanye West');
+INSERT INTO `groups` VALUES (3,'Childish Bambino');
+
+
 ## 
 ## Contenu de la table `played_musics`
 ##
 
-INSERT INTO `played_musics` VALUES (1, 1, 1);
-INSERT INTO `played_musics` VALUES (2, 2, 1);
-INSERT INTO `played_musics` VALUES (3, 3, 1);
+INSERT INTO `played_musics` VALUES (NULL, 1, 1);
+INSERT INTO `played_musics` VALUES (NULL, 1, 2);
+INSERT INTO `played_musics` VALUES (NULL, 1, 3);
+INSERT INTO `played_musics` VALUES (NULL, 2, 4);
+INSERT INTO `played_musics` VALUES (NULL, 3, 5);
+
 
 ## 
 ## Contenu de la table `listed_musics`

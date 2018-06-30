@@ -9,14 +9,16 @@ $db_connect = db_connect();
 
 require("../model/model_display_informations.php");
 if($_REQUEST['media'] === "movie"){
-    $select = "t1.image, t1.synopsis";
+    $data = mysqli_fetch_all(display_info_movie($db_connect,$_REQUEST['media'],$_REQUEST['id']), MYSQLI_NUM);
+    $actors = mysqli_fetch_all(display_actors($db_connect,$_REQUEST['media'],$_REQUEST['id']), MYSQLI_NUM);
+    $height = "300px";
 }else if($_REQUEST['media'] === "music"){
-    $select = "t1.image";
+    $data = mysqli_fetch_all(display_info_music($db_connect, $_REQUEST['media'], $_REQUEST['id']), MYSQLI_NUM);
+    $height = "200px";
 }
-$data = mysqli_fetch_all(display_info($db_connect,$_REQUEST['media'],$_REQUEST['id'],$select), MYSQLI_NUM);
 if(!empty($data)){
     foreach($data as $infos){
-        echo "<img src=".$infos[2]." width='200px' height='300px'><br>"." Title : ".$infos[0]."<br>Date : ".$infos[1]."<br>Note : ";
+        echo "<img src=".$infos[2]." width='200px' height='".$height."'><table><tr></td><td>Title : </td><td>".$infos[0]."</td></tr><tr><td>Date : </td><td>".$infos[1]."</td></tr><tr><td>Note : </td><td>";
 		if(isset($_REQUEST['grade'])) {
 			$grade = $_REQUEST['grade'];
 		}else {
@@ -49,11 +51,23 @@ if(!empty($data)){
 				}
 			}
 			echo "</td></tr>";	
-		}
-		echo "</center></table>";
-		echo "<br>";
+        }
         if($_REQUEST['media'] === "movie"){
-            echo "Synopsis : ".$infos[3]."<p>";
+        echo "<tr><td>Directed by : </td><td>".$infos[4]." ".$infos[5]."</td></tr>";
+        echo "<tr><td>Actors : </td><td>";
+        $i = 0;
+        foreach($actors as $actor){
+            if($i === 0){
+                echo $actor[0]." ".$actor[1];
+            }else{
+                echo ", ".$actor[0]." ".$actor[1];
+            }
+            $i++;
+        }
+		echo "</tr></table>";
+        echo "<tr><td width='10%'><button class='button'>Synopsis</button></td><td><p>".$infos[3]."</p><br>";
+        }else {
+            echo "<tr><td>Group : </td><td>".$infos[3]."</td></tr>";
         }
     }
     require("../model/model_registration_id_search.php");
@@ -64,17 +78,18 @@ if(!empty($data)){
             $data = mysqli_fetch_array(search_favorit($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
             if(!empty($data[0])){
 				echo "<br><a href='controller_manage_list.php?list=remove&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'l' src='../ressources/icons/add.png' width='50px' height='50px'></a>";
-                echo "<br><a href='controller_manage_list.php?favorit=remove&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/unfavorit.png' width='50px' height='50px'></a>";
+                echo "<a href='controller_manage_list.php?favorit=remove&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/unfavorit.png' width='50px' height='50px'></a>";
             }else{
                 echo "<br><a href='controller_manage_list.php?list=remove&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'l' src='../ressources/icons/add.png' width='50px' height='50px'></a>";
-                echo "<br><a href='controller_manage_list.php?favorit=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
+                echo "<a href='controller_manage_list.php?favorit=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
             }
         }else{
-            echo "<br><a href='controller_manage_list.php?list=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'l' src='../ressources/icons/X.png' width='50px' height='50px'></a>";
-			echo "<br><a href='controller_manage_list.php?favorit=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a>";
+            echo "<tr><td><a href='controller_manage_list.php?list=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'l' src='../ressources/icons/X.png' width='50px' height='50px'></a></td>";
+			echo "<td><a href='controller_manage_list.php?favorit=add&id=".$_REQUEST['id']."&media=".$_REQUEST["media"]."'><img id = 'f' src='../ressources/icons/favorit.png' width='50px' height='50px'></a></td></tr>";
         }
     }
 }else{
     print("Not found");
 }
+echo "</table>";
 ?>
