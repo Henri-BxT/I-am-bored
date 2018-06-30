@@ -53,8 +53,8 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             $tmp = mysqli_fetch_array(idsearch($db_connect,$id), MYSQLI_NUM);
             if($tmp[0] === $id){
                 //ID already exists
-                echo "ID already exists<br>";
                 require_once("../view/view_registration.html");
+                echo "<font color='red'>ID already exists</font>";
                 exit();
             }
             //No errors, the user is registred
@@ -63,12 +63,12 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             require("../model/model_registration_insert.php");
             registration_insert($db_connect,$id,$password);
             require_once("controller_home_page.php");
-            echo "You have been registered";
+            echo "<font color='red'>You have been registered</font>";
             mysqli_close($db_connect);
         }
     }else {
-        echo "You MUST read the chart of privacy policies";
         require_once("../view/view_registration.html");
+        echo "<font color='red'>You MUST read the chart of privacy policies</font>";
         exit();
     }
 //if a field is empty

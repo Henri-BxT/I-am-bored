@@ -24,12 +24,12 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 	$liste = mysqli_fetch_all(advanced_search($db_connect,$search,$asc_desc, $type, $name_grade, $_REQUEST['media']), MYSQLI_NUM);
 	
 	if(!empty($liste)){
-		echo "<center><table><tr class='table_profil'>";
+		echo "<center><table class='class_table'><tr class='class_table'>";
 		foreach($liste as $array){
 			if($array[2]===null){
 				$array[2] = "Pas de note";
 			}	
-			echo "<td><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td>";
+			echo "<td class='class_table'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td class='class_table'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td class='class_table'>";
 			for($i=1;$i<6;$i++){
 				if($i<=$array[2]){
 					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
@@ -41,7 +41,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 		}
 		echo "</center></table>";
 	}else{
-		echo"<center>Not found</center>";
+		echo"<center><font color='red'>Not found</font></center>";
 	}
 }
 	

@@ -1,9 +1,10 @@
 <?php
-session_start();
-require_once("../view/view_change_password.php");
+if(!isset($_POST['delete'])){
+	session_start();
+	require_once("../view/view_settings.html");
 
-$tmp_password= "";
-
+	$tmp_password= "";
+}
 // Button pressed
 if(isset($_POST['validation'])){
 	//If field password is empty
@@ -30,7 +31,8 @@ if(isset($_POST['validation'])){
 			$password = $_POST['pass_confirmation'];
 			$password = (string) $password;
 			$_SESSION['password'] = $password;
-			require_once("../model/model_change_password.php");
+			require_once("../model/model_settings.php");
+			change_password();
 			print("Reset confirmed");
 		}
 		//Else if it fail print Error message
@@ -39,5 +41,15 @@ if(isset($_POST['validation'])){
 		}
 	}
 }
-
+if(isset($_POST['delete'])){
+	session_start();
+	require_once("../db_connect.php");
+	$db_connect = db_connect();
+	require_once("../model/model_settings.php");
+	require_once("../model/model_registration_id_search.php");
+	$id_user = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']), MYSQLI_NUM);
+	delete_user($db_connect, $id_user[0], $_SESSION['id']);
+	require("controller_logout.php");
+	
+}
 ?>

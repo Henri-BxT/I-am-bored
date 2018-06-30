@@ -4,6 +4,13 @@ header{
     top:0;
     background: #282828;
 }
+table {
+    border-collapse: collapse;
+}
+
+.class_table {
+    border: 2px solid red;
+} 
 .side_panel{
     position: fixed;
     left:0;
@@ -228,9 +235,6 @@ a
   border-top-color: #ccc;
   bottom: -8px;
 }
-.table_profil{
-    border-bottom: 1px solid black;
- }
 .btn {
   border: 3px solid #1a1a1a;
   display: inline-block;

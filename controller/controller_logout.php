@@ -1,7 +1,9 @@
 <?php
-session_start();
+if(!isset($_POST['delete'])){
+    session_start();
+}
 unset($_SESSION['id']);
 unset($_SESSION['id2']);
 session_destroy();
-header("location: controller_home_page.php");
+require("controller_home_page.php");
 ?>

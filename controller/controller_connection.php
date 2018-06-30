@@ -23,8 +23,8 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     //Error with the id or password
     mysqli_close($db_connect);
     } else {
-        echo "Wrong id or password<br>";
         require_once("../view/view_sign_in.html");
+        echo "<font color='red'>Wrong id or password</font>";
     }
 } else {
     require_once("../view/view_sign_in.html");

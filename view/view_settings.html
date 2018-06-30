@@ -6,13 +6,22 @@
 		<title>Edit Profile</title>
 </head>
 <body>
-<table class="edit">
+<table>
 <tr><th><h2>Password Change</h2></th></tr>
-<form action="../controller/controller_change_password.php" method="POST"></td></tr>
+<form action="../controller/controller_settings.php" method="POST"></td></tr>
 <tr><td>New Password <input type="password" name="password" value="" style="background-color: grey; color: white;"> <font color="red" size="1">Required between 6 and 14 characters</font></td></tr>
 <tr><td>Re-type Password <input type="password" name="pass_confirmation" value="" style="background-color: grey; color: white;"></td></tr>
 <tr><th><input type="submit" name="validation" value="Reset Password" class="button"></th></tr>
 </form>
-<br>
+<td><hr></td>
+</table>
+<p>
+<table>
+<tr><th><h2>Delete account</h2></th></tr>
+<form action="../controller/controller_settings.php" method="POST">
+<tr><td><font color='red'>Any delete will be definitive</font></td></tr>
+<tr><td><input type='submit' name='delete' value='Delete account'class="button"></td></tr>
+</form>
+
 </body>
 </html>

@@ -24,6 +24,3 @@ echo "<tr><td><input type='submit' name='list_movies' value='Search' class='go'>
 echo "</form></table>";
 ?>
 </div>
-    <BR>
-    <center>
-      <TABLE border="1" align="right">
