@@ -275,7 +275,7 @@ for($i=0;$i<count($liste);$i++){
         $liste[$i]['plot'] = str_replace('"',"",$liste[$i]['plot']);
         $liste[$i]['title'] = str_replace("'","",$liste[$i]['title']);
         insert_movie($db_connect, $liste[$i]['title'], $php[$date], $liste[$i]['image'], $liste[$i]['plot']);
-
+        $date += 5;
         //INSERT ACTORS
         foreach($liste[$i]['actors'] as $actor){
                 $actor_with_bs_name = explode(" ",$actor);
