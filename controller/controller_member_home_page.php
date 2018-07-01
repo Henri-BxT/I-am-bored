@@ -11,16 +11,31 @@ require_once("../model/model_suggestion.php");
 
 $id = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']));
 $liste = suggestion($db_connect, "movie", $id[0]);
-echo "Suggestions :<p>";
-echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$liste['id_movie']."&media=movie'><img src=".$liste['image']." width='150' height='250px'></a><br><a href='controller_display_informations.php?id=".$liste['id_movie']."&media=movie'>".$liste["title"]."</a><br>";
-for($i=0;$i<5;$i++){
-    if($i<=$liste['grade']){
-        echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
-    }else{
-        echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
+if(!empty($liste)){
+    echo "Suggestions :<p>";
+    echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$liste['id_movie']."&media=movie'><img src=".$liste['image']." width='150' height='250px'></a><br><a href='controller_display_informations.php?id=".$liste['id_movie']."&media=movie'>".$liste["title"]."</a><br>";
+    for($i=0;$i<5;$i++){
+        if($i<=$liste['grade']){
+            echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+        }else{
+            echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
+        }
     }
+    echo "</td></tr></center>";	
 }
-echo "</td></tr>";	
-echo "</center>";
 
+$id = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']));
+$liste = suggestion($db_connect, "music", $id[0]);
+if(!empty($liste)){
+    echo "<hr><center>";
+    echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$liste['id_music']."&media=music'><img src=".$liste['image']." width='150' height='150px'></a><br><a href='controller_display_informations.php?id=".$liste['id_music']."&media=music'>".$liste["title"]."</a><br>";
+    for($i=0;$i<5;$i++){
+        if($i<=$liste['grade']){
+            echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
+        }else{
+            echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";
+        }
+    }
+    echo "</td></tr></center>";	
+}
 ?>
