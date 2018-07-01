@@ -70,7 +70,6 @@ NULL, "True Lies", "1994/10/12", "../ressources/movies/true_lies.jpg", "When a s
 NULL, "Gangs of New York", "2003/01/08", "../ressources/movies/gangs_of_ny.jpg", "In 1863, Amsterdam Vallon returns to the Five Points area of New York City seeking revenge against Bill the Butcher, his father's killer.",
 NULL, "Black Hawk Down", "2002/02/20", "../ressources/movies/black_hawk_down.jpg", "123 elite U.S. soldiers drop into Somalia to capture two top lieutenants of a renegade warlord and find themselves in a desperate battle with a large force of heavily-armed Somalis.",
 NULL, "The Fifth Element", "1997/05/07", "../ressources/movies/the_fifth_element.jpg", "In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr Zorg at bay.",
-NULL, "The Lord of the Rings: Return of the King", "2003/12/17", "../ressources/movies/TLOTR_the_Return_of_the_king.jpg", "The former Fellowship of the Ring prepare for the final battle for Middle Earth, while Frodo & Sam approach Mount Doom to destroy the One Ring.",
 NULL, "The Lord of the Rings: The Two Towers", "2002/12/18", "../ressources/movies/TLOTR_the_two_towers.jpg", "Frodo and Sam continue on to Mordor in their mission to destroy the One Ring. Whilst their former companions make new allies and launch an assault on Isengard.",
 NULL, "Rush Hour 3", "2007/10/17", "../ressources/movies/rush_hour3.jpg", "After an attempted assassination on Ambassador Han, Lee and Carter head to Paris to protect a French woman with knowledge of the Triads' secret leaders.",
 NULL, "Rush Hour 2", "2001/08/29", "../ressources/movies/rush_hour2.jpg", "Carter and Lee head to Hong Kong for vacation, but become embroiled in a counterfeit money scam.",
@@ -264,7 +263,7 @@ $j = 2;
 $liste = array();
 //1261
 //11
-while($titre !== 1261){
+while($titre !== 1256){
         $php[$titre] = str_replace(" ","_",$php[$titre]);
         $php[$titre] = str_replace(":","%3A",$php[$titre]);
         array_push($liste, find_by_title($php[$titre]));
