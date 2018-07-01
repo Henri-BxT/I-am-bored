@@ -4,17 +4,13 @@ header{
     top:0;
     background: #282828;
 }
-table, td {
+table {
     border-collapse: collapse;
 }
 
 .class_table {
     border: 2px solid red;
-    width:40%;
 } 
-.class_table2 {
-    border: 2px solid red;
-}
 .side_panel{
     position: fixed;
     left:0;
@@ -24,7 +20,7 @@ table, td {
     border: none;
     color: #D80000;
     font-weight: bold;
-    padding:  20px;
+    padding: 5px 20px;
     border-radius: 4px;
     text-align: center;
     text-decoration: none;
@@ -47,7 +43,7 @@ table, td {
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-	margin-top: 2;
+	margin-top: 25px;
 }
 .text{
     color: #D80000;
@@ -92,7 +88,7 @@ body {
     width: 30%;
 }
 .select{
-    border-radius: ;
+    border-radius: 5px;
     border: 1px solid black;
     color: red;
     width: 7%;
@@ -110,7 +106,7 @@ body {
     background-color: black; 
     background-size: 10px;
 }.type{
-    border-radius: ;
+    border-radius: 5px;
     border: 1px solid black;
     color: red;
     width: 40%;
@@ -131,7 +127,7 @@ body {
 .go{
     background-color: black;
     color: #D80000;
-    border-radius: ;
+    border-radius: 5px;
     text-align: center;
     text-decoration: none;
     border: 1px solid black;
@@ -165,11 +161,11 @@ body {
 }
 #link2
 {
-	margin-right: ;
+	margin-right: 5px;
 }
 #link3
 {
-	margin-right: -2;
+	margin-right: -25px;
 }
 #link1 span
 {
@@ -181,7 +177,7 @@ body {
 }
 #link2 span
 {
-	margin-right: ;
+	margin-right: 5px;
 	padding: 0px;
 	padding-right: 8px;
 	bottom: -50px;
@@ -189,7 +185,7 @@ body {
 }
 #link3 span
 {
-	margin-right: -2;
+	margin-right: -25px;
 	padding: 0px;
 	padding-right: 28px;
 	bottom: -50px;
@@ -206,9 +202,9 @@ a
   position: absolute;
   color: #D80000;
   bottom: -50px;
-  width: 2;
+  width: 25px;
   z-index: 999;
-  margin-left: -2;
+  margin-left: -25px;
   border: 2px solid #D80000;
   opacity: .9;
   background-color: black;
@@ -242,10 +238,10 @@ a
 .btn {
   border: 3px solid #1a1a1a;
   display: inline-block;
-  padding: ;
+  padding: 5px;
   position: relative;
   text-align: center;
-  transition: 600ms ease, color 600ms ease;
+  transition: background 600ms ease, color 600ms ease;
 }
 
 input[type="radio"].toggle {
@@ -276,7 +272,7 @@ input[type="radio"].toggle.toggle-left + label:after {
   left: 100%;
 }
 input[type="radio"].toggle.toggle-right + label {
-  margin-left: -;
+  margin-left: -5px;
 }
 input[type="radio"].toggle.toggle-right + label:after {
   left: -100%;

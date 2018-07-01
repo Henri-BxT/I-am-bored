@@ -25,7 +25,7 @@ if(!empty($liste)){
 		if($array[3]===null){
 			$array[3] = "Pas de note";
 		}
-        echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td class='class_table'><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td class='class_table'>";				
+        echo "<td class='class_table'><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td class='class_table'><a href='controller_display_informations.php?id=".$array[2]."&media=".$_GET['media']."'>".$array[1]."</a></td><td class='class_table'>";				
 	for($i=0;$i<5;$i++){
 		if($i<=$array[3]){
 			echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
