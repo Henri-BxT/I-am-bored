@@ -1218,7 +1218,7 @@ INSERT INTO movie_types VALUES(NULL, '53', '4');
 INSERT INTO movie_types VALUES(NULL, '53', '2');
 INSERT INTO movie_types VALUES(NULL, '53', '10');
 
-INSERT INTO movies VALUES(NULL, "Mr. and Mrs. Smith", "2005/07/27", "N/A", "Newly relocated to the suburbs, married assassins John and Jane Smith have re-established their respective businesses, though the marital issues that plagued them in the past have returned.");
+INSERT INTO movies VALUES(NULL, "Mr. and Mrs. Smith", "2005/07/27", "https://m.media-amazon.com/images/M/MV5BMTUxMzcxNzQzOF5BMl5BanBnXkFtZTcwMzQxNjUyMw@@._V1_SY1000_CR0,0,678,1000_AL_.jpg", "Newly relocated to the suburbs, married assassins John and Jane Smith have re-established their respective businesses, though the marital issues that plagued them in the past have returned.");
 INSERT INTO actors VALUES(NULL, 'Henderson', 'Martin');
 INSERT INTO played_movies VALUES(NULL, '178', '54');
 INSERT INTO actors VALUES(NULL, 'Brewster', 'Jordana');
@@ -2214,7 +2214,7 @@ INSERT INTO movie_types VALUES(NULL, '131', '4');
 INSERT INTO movie_types VALUES(NULL, '131', '9');
 INSERT INTO movie_types VALUES(NULL, '131', '37');
 
-INSERT INTO movies VALUES(NULL, "Kill Bill: Vol. 1", "2003/10/26", "https://ia.media-imdb.com/images/M/MV5BYTczMGFiOWItMjA3Mi00YTU5LWIwMDgtYTEzNjRkNDkwMTE2XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_SX300.jpg", "The lead character, called 'The Bride,' was a member of the Deadly Viper Assassination Squad, led by her lover 'Bill.' Upon realizing she was pregnant with Bill's child, 'The Bride' decided to escape her life as a killer. She fled to Texas, met a young man, who, on the day of their wedding rehearsal was gunned down by an angry and jealous Bill (with the assistance of the Deadly Viper Assassination Squad). Four years later, 'The Bride' wakes from a coma, and discovers her baby is gone. She, then, decides to seek revenge upon the five people who destroyed her life and killed her baby. The saga of Kill Bill Volume I begins.");
+INSERT INTO movies VALUES(NULL, "Kill Bill: Vol. 1", "2003/10/26", "https://m.media-amazon.com/images/M/MV5BNzM3NDFhYTAtYmU5Mi00NGRmLTljYjgtMDkyODQ4MjNkMGY2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg", "The lead character, called 'The Bride,' was a member of the Deadly Viper Assassination Squad, led by her lover 'Bill.' Upon realizing she was pregnant with Bill's child, 'The Bride' decided to escape her life as a killer. She fled to Texas, met a young man, who, on the day of their wedding rehearsal was gunned down by an angry and jealous Bill (with the assistance of the Deadly Viper Assassination Squad). Four years later, 'The Bride' wakes from a coma, and discovers her baby is gone. She, then, decides to seek revenge upon the five people who destroyed her life and killed her baby. The saga of Kill Bill Volume I begins.");
 INSERT INTO actors VALUES(NULL, 'Thurman', 'Uma');
 INSERT INTO played_movies VALUES(NULL, '376', '132');
 INSERT INTO actors VALUES(NULL, 'Liu', 'Lucy');
@@ -3311,7 +3311,7 @@ INSERT INTO directed VALUES(NULL, '1', '221');
 INSERT INTO movie_types VALUES(NULL, '221', '105');
 INSERT INTO movie_types VALUES(NULL, '221', '100');
 
-INSERT INTO movies VALUES(NULL, "Amelie", "2001/02/08", "N/A", "N/A");
+INSERT INTO movies VALUES(NULL, "Amelie", "2001/02/08", "https://m.media-amazon.com/images/M/MV5BNDg4NjM1YjMtYmNhZC00MjM0LWFiZmYtNGY1YjA3MzZmODc5XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg", "Amélie is a story about a girl named Amélie whose childhood was suppressed by her Father's mistaken concerns of a heart defect. With these concerns Amélie gets hardly any real life contact with other people. This leads Amélie to resort to her own fantastical world and dreams of love and beauty. She later on becomes a young woman and moves to the central part of Paris as a waitress. After finding a lost treasure belonging to the former occupant of her apartment, she decides to return it to him. After seeing his reaction and his new found perspective - she decides to devote her life to the people around her. Such as, her father who is obsessed with his garden-gnome, a failed writer, a hypochondriac, a man who stalks his ex girlfriends, the \"ghost\", a suppressed young soul, the love of her life and a man whose bones are as brittle as glass. But after consuming herself with these escapades - she finds out that she is disregarding her own life and damaging her quest for love. Amélie then discovers she must become more aggressive and take a hold of her life and capture the beauty of love she has always dreamed of.");
 INSERT INTO actors VALUES(NULL, 'Carrour', 'Marie');
 INSERT INTO played_movies VALUES(NULL, '575', '222');
 INSERT INTO directors VALUES(NULL, 'Damant', 'Aurore');
