@@ -71,6 +71,10 @@ if(!isset($_SESSION["id"])){
 <div class="separator2"></div>
 <div class="separator2"></div>
 <div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
 <div class="separator"></div>
 </HEADER>
 <center>
