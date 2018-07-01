@@ -10,6 +10,10 @@ table {
 
 .class_table {
     border: 2px solid red;
+    width: 40%;
+} 
+.class_table2 {
+    border: 2px solid red;
 } 
 .side_panel{
     position: fixed;

@@ -29,7 +29,7 @@ if(isset($_REQUEST[$_REQUEST['media'].'_search'])){
 			if($array[2]===null){
 				$array[2] = "Pas de note";
 			}	
-			echo "<td class='class_table'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td class='class_table'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td class='class_table'>";
+			echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'><img src=".$array[0]." width='100' height='100px'></a></td><td class='class_table'><a href='controller_display_informations.php?id=".$array[3]."&media=".$_REQUEST['media']."'>".$array[1]."</a></td><td class='class_table'>";
 			for($i=1;$i<6;$i++){
 				if($i<=$array[2]){
 					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
