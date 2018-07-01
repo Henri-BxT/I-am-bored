@@ -61,5 +61,15 @@ if(!isset($_SESSION["id"])){
     <input type="submit" value="GO" class="go">
 </form>
 </div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator2"></div>
+<div class="separator"></div>
 </HEADER>
 <center>
