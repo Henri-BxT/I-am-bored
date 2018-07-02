@@ -1,4 +1,7 @@
 <?php
+require_once("../db_connect.php");
+$db_connect = db_connect();
+
 if(!isset($_POST['delete'])){
 	session_start();
 	require_once("../view/view_settings.html");
@@ -32,7 +35,7 @@ if(isset($_POST['validation'])){
 			$password = (string) $password;
 			$_SESSION['password'] = $password;
 			require_once("../model/model_settings.php");
-			change_password();
+			change_password($db_connect);
 			print("Reset confirmed");
 		}
 		//Else if it fail print Error message

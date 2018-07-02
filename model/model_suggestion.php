@@ -85,8 +85,7 @@ function suggestion_non_co($db_connect, $media){
                         ORDER BY favorit_q DESC";
 
     $result = mysqli_query($db_connect, $suggestion_req);
-    $REQ = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
+    $REQ = mysqli_fetch_all($result, MYSQLI_ASSOC);
     return $REQ;
 }
 ?>

@@ -3,27 +3,27 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
     if(isset($_REQUEST['privacypolicies'])){
         //If the two passwords aren't the same
         if($_POST['password'] !== $_POST['password2']){
-            echo "The passwords are differents<br>";
+            echo "<center><b><font color='red'>The passwords are differents</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else if(strlen($_POST['id'])<3){
-            echo "Is that really your name ?<br>";
+            echo "<center><b><font color='red'>Is that really your name ?</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else if(strlen($_POST['id'])>20){
-            echo "There is no way I can remember that.<br>";
+            echo "There is no way I can remember that.</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else if(strlen($_POST['password'])<6){
-            echo "Size is still important.<br>";
+            echo "<center><b><font color='red'>Size is still important.</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else if(strlen($_POST['password'])>14){
-            echo "I-impossible, it will never fit in.<br>";
+            echo "<center><b><font color='red'>I-impossible, it will never fit in.</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else if (strstr($_POST['password'], ".") or strstr($_POST['id'],".")){
-            echo "Please de not use '.'.<br>";
+            echo "<center><b><font color='red'>Please de not use '.'.</font></b><p></center>";
             require_once("../view/view_registration.html");
             exit();
         } else {
@@ -42,7 +42,7 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
                 if(ord($id[$i])<65 or ord($id[$i])>90){
                     if(ord($id[$i])<47 or ord($id[$i])>57){
                         if(ord($id[$i]) !== 39 or ord($id[$i]) !== 45){
-                            echo "Unauthorized special caracter detected<br>";
+                            echo "<center><b><font color='red'>Unauthorized special caracter detected</font></b><p></center>";
                             require_once("../view/view_registration.html");
                             exit();
                         }
@@ -53,8 +53,8 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             $tmp = mysqli_fetch_array(idsearch($db_connect,$id), MYSQLI_NUM);
             if($tmp[0] === $id){
                 //ID already exists
+                echo "<center><b><font color='red'>ID already exists</font></b><p></center>";
                 require_once("../view/view_registration.html");
-                echo "<font color='red'>ID already exists</font>";
                 exit();
             }
             //No errors, the user is registred
@@ -62,13 +62,13 @@ if(!empty($_POST['password']) and !empty($_POST['id']) and !empty($_POST['passwo
             $password = encrypt($_POST['password'], "MyKeyIsUmbreakable");
             require("../model/model_registration_insert.php");
             registration_insert($db_connect,$id,$password);
+            echo "<center><b><font color='red'>You have been registered</font></b><p></center>";
             require_once("controller_home_page.php");
-            echo "<font color='red'>You have been registered</font>";
             mysqli_close($db_connect);
         }
     }else {
+        echo "<center><font color='red'><b>You MUST read the chart of privacy policies</font></b><p></center>";
         require_once("../view/view_registration.html");
-        echo "<font color='red'>You MUST read the chart of privacy policies</font>";
         exit();
     }
 //if a field is empty

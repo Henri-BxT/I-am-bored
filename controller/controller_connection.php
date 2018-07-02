@@ -28,5 +28,6 @@ if(!empty($_POST['id']) and !empty($_POST['password'])){
     }
 } else {
     require_once("../view/view_sign_in.html");
+    echo "<font color='red'><b><center>Fill the requiered fileds to connect</font></b></center>";
 }
 ?>

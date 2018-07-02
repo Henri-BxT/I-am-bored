@@ -1,7 +1,5 @@
 <?php
-function change_password(){
-    require_once("../db_connect.php");
-    $db_connect = db_connect();
+function change_password($db_connect){
 
     require("functions/controller_encrypt.php");
 
@@ -9,7 +7,7 @@ function change_password(){
     $password = $_SESSION['password'];
 
     $SQL = 'SELECT id_member FROM members WHERE login = "'.$login.'"';
-    $REQ = mysqli_query($db_connexion, $SQL);
+    $REQ = mysqli_query($db_connect, $SQL);
 
     $tmp = mysqli_fetch_array($REQ, MYSQLI_NUM);
 
@@ -18,11 +16,11 @@ function change_password(){
     $password = encrypt($password, "MyKeyIsUmbreakable");
 
     $SQL = 'UPDATE members SET password = "'.$password.'" WHERE id_member = "'.$tmp[0].'"';
-    $REQ = mysqli_query($db_connexion, $SQL);
+    $REQ = mysqli_query($db_connect, $SQL);
 
     unset($_SESSION['password']);
 
-    mysqli_close($db_connexion);
+    mysqli_close($db_connect);
 }
 function delete_user($db_connect, $id_user, $login){
     mysqli_query($db_connect, "DELETE FROM LISTED_MOVIES WHERE id_member = '".$id_user."';");
