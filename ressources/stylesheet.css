@@ -294,6 +294,6 @@ input[type="radio"].toggle:checked + label:after {
     background-color: red;
 }
 .separator2{
-    height: 140px;
+    height: 45px;
     background-color: #282828;
 }

@@ -44,7 +44,7 @@ if(!empty($data)){
             }
         }else{
             for($i=0;$i<5;$i++){
-				if($i<=$grade[3]){
+				if($i<$grade[3]){
 					echo"<img src='../ressources/icons/full_star.png' width='20px' height='20px'>";
 				}else{
 					echo"<img src='../ressources/icons/empty_star.png' width='20px' height='20px'>";

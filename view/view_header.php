@@ -61,7 +61,14 @@ if(!isset($_SESSION["id"])){
     <input type="submit" value="GO" class="go">
 </form>
 </div>
-<div class="separator2"></div>
+<font color=#282828>_____________________________________________________________________________________________________________________________________</font>
+<?php if(isset($_SESSION["id"])){
+echo "<div class='separator2'></div>";
+}
+?>
+<div float="center">
+<font color="red" face="arial"><b>I'm Bored let you search a movie to watch or a music to listen when you have nothing to do.<b></font>
+</div>
 <div class="separator"></div>
 </HEADER>
 <center>
