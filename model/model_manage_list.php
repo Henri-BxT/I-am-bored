@@ -18,7 +18,7 @@ function id($ut) {
 function add_l($t_oeuvre, $ut, $id_oeu) {
 	global $bdd;
 	$id_ut = id($ut);
-	mysqli_query($bdd,'INSERT INTO listed_'.$t_oeuvre.'s VALUES(NULL,'.$id_ut[0].','.$id_oeu.',NULL,NULL)');
+	mysqli_query($bdd,'INSERT INTO listed_'.$t_oeuvre.'s VALUES(NULL,'.$id_ut[0].','.$id_oeu.',0,0)');
 }
 
 function rem_l($t_oeuvre, $ut, $id_oeu) {
