@@ -22,12 +22,14 @@ if(!empty($liste)){
         }
     }
     echo "</td></tr></center>";	
+}else {
+    echo "No movie suggestions for now<p>";
 }
-
+echo "<hr color='red'>";
 $id = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']));
 $liste = suggestion($db_connect, "music", $id[0]);
 if(!empty($liste)){
-    echo "<hr><center>";
+    echo "<center>";
     echo "<td class='class_table2'><a href='controller_display_informations.php?id=".$liste['id_music']."&media=music'><img src=".$liste['image']." width='150' height='150px'></a><br><a href='controller_display_informations.php?id=".$liste['id_music']."&media=music'>".$liste["title"]."</a><br>";
     for($i=0;$i<5;$i++){
         if($i<=$liste['grade']){
@@ -37,5 +39,7 @@ if(!empty($liste)){
         }
     }
     echo "</td></tr></center>";	
+}else {
+    echo "<p>No music suggestions for now";
 }
 ?>

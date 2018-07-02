@@ -67,13 +67,14 @@ if(!empty($data)){
 		echo "</tr></table>";
         echo "<tr><td width='10%'><button class='button'>Synopsis</button></td><td><p>".$infos[3]."</p><br>";
         }else {
-            echo "<tr><td>Group : </td><td>".$infos[3]."</td></tr>";
+            echo "<tr><td>Artist : </td><td>".$infos[3]."</td></tr>";
         }
     }
     require("../model/model_registration_id_search.php");
     if(isset( $_SESSION['id'])){
         $id_member = mysqli_fetch_array(id_search($db_connect, $_SESSION['id']), MYSQLI_NUM);
         $data = mysqli_fetch_array(search_list($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
+        echo "<table>";
         if(!empty($data)){
             $data = mysqli_fetch_array(search_favorit($db_connect,$_REQUEST['media'],$_REQUEST['id'],$id_member[0]), MYSQLI_NUM);
             if(!empty($data[0])){
