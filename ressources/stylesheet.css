@@ -290,10 +290,10 @@ input[type="radio"].toggle:checked + label:after {
   left: 0;
 }
 .separator{
-    height: 140px;
+    height: 10px;
     background-color: red;
 }
 .separator2{
-    height: 10px;
+    height: 140px;
     background-color: #282828;
 }
