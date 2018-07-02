@@ -67,7 +67,7 @@ echo "<div class='separator2'></div>";
 }
 ?>
 <div float="center">
-<font color="red" face="arial"><b>I'm Bored let you search a movie to watch or a music to listen when you have nothing to do.<b></font>
+<font color="red" face="arial"><b>The almighty cure to boredom.<b></font>
 </div>
 <div class="separator"></div>
 </HEADER>

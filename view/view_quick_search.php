@@ -5,6 +5,7 @@
 <HEAD><TITLE>Profile</TITLE>
 </HEAD>
 <BODY>
+<br>
 <div class="side_panel">
 <?php
 require_once("../model/model_profile_search.php");
@@ -23,4 +24,5 @@ echo "<tr><td><input type='hidden' name='media' value='".$_REQUEST['media']."']>
 echo "<tr><td><input type='submit' name='list_movies' value='Search' class='go'>";
 echo "</form></table>";
 ?>
+</p>
 </div>

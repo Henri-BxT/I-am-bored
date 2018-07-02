@@ -69,19 +69,19 @@ function suggestion($db_connect, $media, $id_profil){
 // Off line suggestion
 function suggestion_non_co($db_connect, $media){
     
-    $suggestion_req = "SELECT DISTINCT t1.id_music, 
-                            (SELECT COUNT(t2.id_music) 
-                            FROM listed_musics AS t2 
-                            WHERE t2.id_music = t1.id_music) AS music_q, 
+    $suggestion_req = "SELECT DISTINCT t1.id_".$media.", 
+                            (SELECT COUNT(t2.id_".$media.") 
+                            FROM listed_".$media."s AS t2 
+                            WHERE t2.id_".$media." = t1.id_".$media.") AS ".$media."_q, 
                             (SELECT COUNT(t3.favorit) 
-                            FROM listed_musics AS t3 
-                            WHERE t3.favorit = 1 AND t3.id_music = t1.id_music) AS favorit_q,
+                            FROM listed_".$media."s AS t3 
+                            WHERE t3.favorit = 1 AND t3.id_".$media." = t1.id_".$media.") AS favorit_q,
                             (SELECT AVG(t5.grade) 
-                            FROM listed_musics AS t5 
-                            WHERE t5.id_music = t1.id_music) AS grade,
+                            FROM listed_".$media."s AS t5 
+                            WHERE t5.id_".$media." = t1.id_".$media.") AS grade,
                             t6.image, t6.title
-                        FROM listed_musics AS t1
-                        INNER JOIN musics AS t6 ON t1.id_music = t6.id_music
+                        FROM listed_".$media."s AS t1
+                        INNER JOIN ".$media."s AS t6 ON t1.id_".$media." = t6.id_".$media."
                         ORDER BY favorit_q DESC";
 
     $result = mysqli_query($db_connect, $suggestion_req);
